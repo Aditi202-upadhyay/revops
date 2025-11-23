@@ -7,7 +7,7 @@ export default function BlogDetailBanner() {
     <section>
       <div
         style={{ backgroundImage: "url('/assets/blogs/backgroundImage.png')" }}
-        className="relative object-cover bg-no-repeat bg-center w-ful h-[30rem] md:h-[35rem] lg:h-screen"
+        className="relative object-cover bg-no-repeat bg-center w-ful h-[30rem] md:h-[35rem] xl:h-screen"
       >
         <div className="absolute inset-0 buttongradient bg-lightDarkGreen opacity-95"></div>
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">

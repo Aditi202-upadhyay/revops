@@ -267,7 +267,7 @@ const Card = ({ image, date, heading, link }: CardProps) => {
         </div>
       </div>
 
-      <h3 className=" custom-text-lg py-2">{heading}</h3>
+      <h3 className=" custom-text-base py-2">{heading}</h3>
       <a
         className="text-darkgreen font-bold custom-text-md flex gap-2 py-4"
         href={link}
