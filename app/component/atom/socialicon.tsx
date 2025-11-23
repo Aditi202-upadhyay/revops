@@ -1,5 +1,5 @@
 export const SocialIcon = ({ icon, href,color }: { icon: string; href: string;color:string }) => (
-  <div className={`border border-[${color}] p-1 rounded-md`}>
+  <div  style={{ border: `1px solid ${color}` }} className={` p-1 rounded-md`}>
     <a
       href={href}
       target="_blank"

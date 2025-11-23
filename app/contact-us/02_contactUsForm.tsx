@@ -11,6 +11,14 @@ interface FormValues {
   message: string;
 }
 
+type FieldProps = {
+  name: string;
+  placeholder: string;
+  errors: Record<string, string | undefined>;
+  touched: Record<string, boolean | undefined>;
+  as?: React.ElementType;
+};
+
 export default function ContactUsForm() {
   const [success, setSuccess] = useState<boolean>(false);
 
@@ -101,7 +109,7 @@ export default function ContactUsForm() {
   );
 }
 
-const FieldInput = ({ name, placeholder, errors, touched, as }: any) => (
+const FieldInput = ({ name, placeholder, errors, touched, as }:FieldProps) => (
   <div className="mb-4">
     <Field
       as={as}
@@ -121,7 +129,7 @@ const FieldInput = ({ name, placeholder, errors, touched, as }: any) => (
     />
   </div>
 );
-const SuccessPop = ({ onClose }: any) =>{
+const SuccessPop = ({ onClose }:{onClose:()=>void} ) =>{
   return (
     <div className="relative w-[90%] max-w-[35rem] p-[2px] rounded-2xl shadow-md">
       <div className="bg-white rounded-2xl px-4 md:px-10 py-4 md:py-12 text-center">
