@@ -94,7 +94,7 @@ export default function Footer() {
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1E5114] to-[#072b01dd] z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1E5114] to-[#072b01dd]/95 z-10" />
 
       <div className="relative z-20 mx-auto max-w-[85rem] px-6 py-8 md:py-14 text-white">
         {/* Header Section with CTA */}

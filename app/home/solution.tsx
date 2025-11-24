@@ -14,7 +14,7 @@ export default function Solution() {
         <div className="absolute inset-0 bg-gradient-to-b from-darkgreen via-55% via-[#215817]/60 to-black"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <Heading title="Solutions" color="#fff" />
-          <h3 className="font-bold text-white custom-text-3xl text-center">
+          <h3 className="font-bold text-white custom-text-3xl text-center pt-2">
             100+ <i className="font-normal">Companies</i> trusted us <br /> to
             improve their <i className="font-normal">marketing</i>
           </h3>

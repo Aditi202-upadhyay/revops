@@ -1,15 +1,20 @@
 
 import GlobalService, { ParentsCom } from "../component/molecules/services";
+import Blog from "./blogs";
+import Impact from "./impact";
 import Solution from "./solution";
 import Testimonial from "./testimonial";
+import Work from "./work";
 
 export default function Home(){
     return(
         <div>
-            
+            <Impact/>
             <GlobalService serviceData={seviceData}/>
             <Solution/>
+            <Work/>
             <Testimonial/>
+            <Blog/>
         </div>
     )
 }
@@ -17,7 +22,7 @@ export default function Home(){
 
 
 const seviceData: ParentsCom = {
-    heading:"Level up your marketing,<br/> improve <i class='font-normal'>marketing ROI</i>",
+    heading:"Level up your marketing,<br class='block'/> improve <i class='font-normal'>marketing ROI</i>",
     description:"We design and optimize growth systems that drive pipeline, align sales and marketing, and make revenue predictable. sales and marketing, and make revenue predictable.",
     data:[
    {

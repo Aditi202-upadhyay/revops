@@ -19,11 +19,11 @@ export default function GlobalService({serviceData}:{serviceData:ParentsCom}) {
     <section className="blade-top-margin-sm">
       <div className="w-container-xl">
         <Heading title="Our Services" color="#014715" />
-        <div className="lg:flex justify-between pt-8">
+        <div className="lg:flex justify-between pt-4 lg:pt-8">
           <h3 className="font-bold text-black custom-text-2xl" dangerouslySetInnerHTML={{__html:serviceData.heading}} />
            
           
-          <p className="font-normal custom-text-md text-gray w-full lg:max-w-md xl:max-w-xl pt-4 lg:pt-0">
+          <p className="font-normal custom-text-md text-gray w-full lg:max-w-md xl:max-w-xl pt-2 lg:pt-0">
             {serviceData.description}
           </p>
         </div>

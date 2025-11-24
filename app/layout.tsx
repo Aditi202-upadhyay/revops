@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Revops",
+  title: "RevOps",
   description: "Boost your sales and grow your brand with powerful social marketing strategies. Learn how to connect, engage, and convert your audience using proven techniques and tools for real growth.",
+  icons: {
+    icon: "/favicon.svg", 
+  },
 };
 
 export default function RootLayout({

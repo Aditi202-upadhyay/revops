@@ -21,7 +21,14 @@ export default function GlobalTestimonial() {
 
   return (
     <section className="blade-top-padding-lg blade-bottom-padding-lg">
-      <div className="bg-darkgreen w-full min-h-[36rem] md:min-h-[45rem] 2xl:min-h-[50rem] overflow-hidden rounded-sm md:rounded-lg">
+      <div
+        style={{
+          backgroundImage: "url('/assets/home/textimonialBackground.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className=" w-full min-h-[36rem] md:min-h-[45rem] 2xl:min-h-[50rem] overflow-hidden rounded-sm md:rounded-lg"
+      >
         <div className="blade-top-padding-sm blade-bottom-padding-sm flex justify-center flex-col items-center px-4 md:px-0">
           <Heading title="Testimonials" color="#ffff" />
           <h3 className="custom-text-3xl text-white italic font-normal text-center my-2">
