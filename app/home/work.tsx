@@ -2,32 +2,31 @@ import { Greenbutton } from "../component/atom/buttons";
 import { Heading } from "../component/atom/decorativeHeading";
 import Image from "next/image";
 
-export default function Work() {
+export default function Work({data}:{data:parentProp}) {
   return (
     <section className="blade-top-padding-lg">
       <div className="w-container-sm">
         <div className="flex justify-center flex-col items-center">
-          <Heading title="Our Work" color="#000" />
-          <h2 className="custom-text-3xl font-bold text-black text-center pt-2">
-            Level up your marketing,
-            <br /> improve
-            <i className="font-normal text-black"> marketing ROI</i>
-          </h2>
+          <Heading title={data.heading} color="#000" />
+
+          <h2
+            className="custom-text-3xl font-bold text-black text-center pt-2"
+            dangerouslySetInnerHTML={{ __html: data.subHeading }}
+          />
         </div>
 
-        <div className="blade-top-margin-sm ">
-          {workData.map((ele, index) => {
-            return (
-              <div key={index} className="my-4">
-                <CardUI data={ele} />
-              </div>
-            );
-          })}
+        <div className="blade-top-margin-sm">
+          {data.details.map((ele, index) => (
+            <div key={index} className="my-4">
+              <CardUI data={ele} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 type workProps = {
   image: string;
@@ -37,50 +36,14 @@ type workProps = {
   points: string[];
 };
 
-const workData: workProps[] = [
-  {
-    image: "/assets/home/placeholder.png",
-    logo: "/assets/home/doholer.png",
-    heading:
-      "Dohler raised 2.71 million and website performance score improved from 52 to 84 after migrating to webflow from Bubble score improved.",
-    link: "#",
-    points: [
-      "Paid Social Marketing",
-      "New Revenue Modeling",
-      "Content Strategy",
-      "Data & Reporting",
-      "Organic Search",
-    ],
-  },
-  {
-    image: "/assets/home/placeholder.png",
-    logo: "/assets/home/doholer.png",
-    heading:
-      "Dohler raised 2.71 million and website performance score improved from 52 to 84 after migrating to webflow from Bubble score improved.",
-    link: "#",
-    points: [
-      "Paid Social Marketing",
-      "New Revenue Modeling",
-      "Content Strategy",
-      "Data & Reporting",
-      "Organic Search",
-    ],
-  },
-  {
-    image: "/assets/home/placeholder.png",
-    logo: "/assets/home/doholer.png",
-    heading:
-      "Dohler raised 2.71 million and website performance score improved from 52 to 84 after migrating to webflow from Bubble score improved.",
-    link: "#",
-    points: [
-      "Paid Social Marketing",
-      "New Revenue Modeling",
-      "Content Strategy",
-      "Data & Reporting",
-      "Organic Search",
-    ],
-  },
-];
+export type parentProp = {
+  heading: string;
+  subHeading: string;
+  details: workProps[];
+};
+
+
+
 
 const CardUI = ({ data }: { data: workProps }) => {
   return (

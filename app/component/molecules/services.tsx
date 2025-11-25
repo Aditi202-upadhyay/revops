@@ -19,7 +19,7 @@ export default function GlobalService({serviceData}:{serviceData:ParentsCom}) {
     <section className="blade-top-margin-sm">
       <div className="w-container-xl">
         <Heading title="Our Services" color="#014715" />
-        <div className="lg:flex justify-between pt-4 lg:pt-8">
+        <div className="lg:flex justify-between pt-4 lg:pt-6">
           <h3 className="font-bold text-black custom-text-2xl" dangerouslySetInnerHTML={{__html:serviceData.heading}} />
            
           
@@ -27,7 +27,7 @@ export default function GlobalService({serviceData}:{serviceData:ParentsCom}) {
             {serviceData.description}
           </p>
         </div>
-        <div className="mt-2 md:mt-6">
+        <div className="mt-2 ">
         {serviceData?.data.map((ele:ServiceProps,index:number)=>{
             return(
                 <div key={index}>

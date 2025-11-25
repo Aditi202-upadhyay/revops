@@ -1,30 +1,22 @@
-
-
+import FAQ from "../component/molecules/faqQuestion";
 import GlobalService, { ParentsCom } from "../component/molecules/services";
-import Blog from "./blogs";
-import Impact from "./impact";
-import Solution from "./solution";
-import Testimonial from "./testimonial";
-import Work, { parentProp } from "./work";
+import Testimonial from "../home/testimonial";
+import Work, { parentProp } from "../home/work";
 
-export default function Home(){
+export default function D2C(){
     return(
-        <div>
-            <Impact/>
-            <GlobalService serviceData={seviceData}/>
-            <Solution/>
-            <Work data={workData}/>
-            <Testimonial/>
-            <Blog/>
-            
-        </div>
+        <>
+         <GlobalService serviceData={seviceData}/>
+                    <Work data={workData}/>
+                    <Testimonial/>
+                    <FAQ/>
+        
+        </>
     )
 }
 
-
-
 const seviceData: ParentsCom = {
-    heading:"Level up your marketing,<br class='block'/> improve <i class='font-normal'>marketing ROI</i>",
+    heading:"100+ <i class='font-normal'>Companies</i> trusted us <br class='block'/>  to improve their <i class='font-normal'>marketing</i>",
     description:"We design and optimize growth systems that drive pipeline, align sales and marketing, and make revenue predictable. sales and marketing, and make revenue predictable.",
     data:[
    {
@@ -54,42 +46,16 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline  ",
     link: "#",
-  },
-   {
-    id: "05",
-    heading: "Conversion Rate Optimization",
-    description:
-      "Improved in ROI and more inbound sales calls, more qualified pipeline ",
-    link: "#",
-  },
-   {
-    id: "06",
-    heading: "Generative Engine Optimization",
-    description:
-      "Improved in ROI and more inbound sales calls, more qualified pipeline ",
-    link: "#",
-  },
-  {
-    id: "07",
-    heading: "Search Engine Optimization",
-    description:
-      "Improved in ROI and more inbound sales calls, more qualified pipeline ",
-    link: "#",
-  },
-   {
-    id: "08",
-    heading: "Email Marketing",
-    description:
-      "Improved in ROI and more inbound sales calls, more qualified pipeline  ",
-    link: "#",
-  },
+  }
   
     ]
 }
 
+
+
 const workData:parentProp = {
   
-    heading: "Our Work",
+    heading: "Case Studies",
     subHeading:
       "Level up your marketing,<br /> improve <i class='font-normal text-black'> marketing ROI</i>",
     details: [
@@ -136,4 +102,4 @@ const workData:parentProp = {
         ],
       },
     ],
-}
+  }

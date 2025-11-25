@@ -228,6 +228,23 @@ html {
     @apply text-base leading-normal md:leading-normal lg:leading-normal xl:text-xl 2xl:text-xl 2xl:leading-normal;
   }
 
+  .animate-fade-in{
+    animation:fad-in 0.5s ease-in-out forwards;
+  }
+
+  .animate-fade-up{
+    animation:fad-up 0.5s ease-in-out forwards;
+  }
+
+  .animate-fade-up-slow{
+    animation:fad-up 0.8s ease-in-out forwards;
+  }
+
+
+  .animate-fade-up-slower{
+    animation:fad-up 1.1s ease-in-out forwards;
+  }
+
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -256,6 +273,23 @@ background: linear-gradient(180deg,rgba(25, 145, 3, 1) 0%, #1E5114 100%);
  
   filter: blur(160px);
   position: absolute;
+}
+
+@keyframes fad-in {
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes fad-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1 !important;
+    transform: translateY(0px);
+  }
 }
 
 }
