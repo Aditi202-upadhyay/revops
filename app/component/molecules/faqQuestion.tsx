@@ -59,7 +59,7 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="mt-16">
+        <div className=" mt-6 md:mt-8 xl:mt-16">
           {faqQuestion.map((ele, index) => (
             <div key={index} className="my-4">
              <FAQUi
@@ -85,9 +85,9 @@ const FAQUi = React.memo(function FAQUi({
   onClick: () => void;
 }) {
   return (
-    <div className="border border-gray/70 rounded-xl p-2 lg:p-4 ">
+    <div className="border border-gray/70 rounded-xl  p-2 lg:p-4 ">
       <div
-        className="flex justify-between items-center cursor-pointer"
+        className="flex justify-between items-center cursor-pointer px-2"
         onClick={onClick}
       >
         <h4 className="custom-text-md text-black font-medium">
