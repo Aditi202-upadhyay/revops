@@ -62,7 +62,7 @@ const CardUI = ({ data }: { data: workProps }) => {
             src={data.logo}
             fill
             alt="placeholder Image"
-            className="object-cover "
+            className="object-contain "
           />
         </div>
         <h5 className="custom-text-base text-lightDarkGreen font-medium max-w-md">
