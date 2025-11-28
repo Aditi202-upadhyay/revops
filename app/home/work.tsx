@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Work({data}:{data:parentProp}) {
   return (
-    <section className="blade-bottom-padding-lg">
+    <section className="blade-bottom-padding-lg ">
       <div className="w-container-sm">
         <div className="flex justify-center flex-col items-center">
           <Heading title={data.heading} color="#000" />

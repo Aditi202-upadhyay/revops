@@ -2,7 +2,7 @@ import { Heading } from "../component/atom/decorativeHeading";
 
 export default function Solution() {
   return (
-    <section className=" blade-top-padding-lg ">
+    <section className=" blade-top-padding-lg blade-bottom-padding-lg">
       <div className="w-full h-screen relative ">
         <video
           src="/assets/home/backgroundVideo.mp4"
