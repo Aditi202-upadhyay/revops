@@ -27,6 +27,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: "https://revops-rho.vercel.app/contact-us",
     siteName: "Revops",
+    images: [
+      {
+        url: "/og-Image.webp",
+        width: 1200,
+        height: 630,
+        alt: "RevOps – Home Page",
+      },
+    ],
     title:
       "Contact Us | RevOps Experts for Scalable Growth & Marketing Success",
     description:
@@ -38,6 +46,7 @@ export const metadata: Metadata = {
       "Contact Us | RevOps Experts for Scalable Growth & Marketing Success",
     description:
       "Get in touch with our RevOps experts to discuss your project. We help brands boost revenue, optimize operations, and create data-driven marketing systems.",
+      images: "/og-Image.webp",
   },
 };
 

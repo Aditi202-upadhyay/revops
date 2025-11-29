@@ -51,7 +51,7 @@ export const metadata = {
     siteName: "RevOps",
     images: [
       {
-        url: "/assets/og-Image.webp",
+        url: "/og-Image.webp",
         width: 1200,
         height: 630,
         alt: "RevOps – Home Page",
@@ -64,7 +64,7 @@ export const metadata = {
     title: "RevOps – Turn Marketing Into Customers",
     description:
       "Align marketing & sales, optimize your growth systems, and create predictable revenue with RevOps.",
-    images: ["/assets/og-Image.webp"],
+    images: "/og-Image.webp",
   },
 };
 
