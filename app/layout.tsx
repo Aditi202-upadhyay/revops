@@ -10,14 +10,6 @@ export const playfair = Playfair_Display({
   variable: '--font-playfair',
 });
 
-export const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-poppins',
-});
-
 
 export const metadata = {
   title: "RevOps – Turn Marketing Into Customers, Not Just Clicks",
@@ -51,7 +43,7 @@ export const metadata = {
     siteName: "RevOps",
     images: [
       {
-        url: "/og-Image.webp",
+        url: "https://revops-rho.vercel.app/og-Image.webp",
         width: 1200,
         height: 630,
         alt: "RevOps – Home Page",
@@ -64,7 +56,7 @@ export const metadata = {
     title: "RevOps – Turn Marketing Into Customers",
     description:
       "Align marketing & sales, optimize your growth systems, and create predictable revenue with RevOps.",
-    images: "/og-Image.webp",
+    images: "https://revops-rho.vercel.app/og-Image.webp",
   },
 };
 
@@ -77,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${poppins.variable} font-poppins antialiased`}
+        className={`${playfair.variable}  antialiased`}
       >
         <Header/>
         {children}
