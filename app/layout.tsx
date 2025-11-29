@@ -11,7 +11,7 @@ export const playfair = Playfair_Display({
 });
 
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "RevOps – Turn Marketing Into Customers, Not Just Clicks",
   description:
     "RevOps helps you build predictable revenue by aligning sales and marketing, optimizing growth systems, and creating high-intent customer journeys. Turn your marketing into real customers—not just clicks.",
@@ -41,22 +41,23 @@ export const metadata = {
       "We turn your marketing into customers—not just clicks. Build aligned sales & marketing systems, optimize your pipeline, and grow with predictable revenue.",
     url: "https://revops-rho.vercel.app/",
     siteName: "RevOps",
+    locale: "en_US",
+    type: "website",
     images: [
       {
         url: "https://revops-rho.vercel.app/og-Image.webp",
         width: 1200,
         height: 630,
-        alt: "RevOps – Home Page",
+        alt: "RevOps",
       },
     ],
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "RevOps – Turn Marketing Into Customers",
     description:
       "Align marketing & sales, optimize your growth systems, and create predictable revenue with RevOps.",
-    images: "https://revops-rho.vercel.app/og-Image.webp",
+    images: ["https://revops-rho.vercel.app/og-Image.webp"],
   },
 };
 
