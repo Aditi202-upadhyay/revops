@@ -51,7 +51,7 @@ export const Heading = ({title,color}:{title:string,color?:string}) => {
     <div className="flex gap-2 items-center">
       <DecorativeIcon />
        <h4
-        className="font-medium custom-text-lg"
+        className="font-helvetica-now custom-text-lg"
         style={{ color }}
       >
         {title}

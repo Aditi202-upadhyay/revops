@@ -1,26 +1,73 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Poppins } from 'next/font/google';
 import "./globals.css";
 import Footer from "./component/organism/footer";
 import Header from "./component/organism/header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+export const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+export const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
+  variable: '--font-poppins',
 });
 
-export const metadata: Metadata = {
-  title: "RevOps",
-  description: "Boost your sales and grow your brand with powerful social marketing strategies. Learn how to connect, engage, and convert your audience using proven techniques and tools for real growth.",
-  icons: {
-    icon: "/favicon.svg", 
+
+export const metadata = {
+  title: "RevOps – Turn Marketing Into Customers, Not Just Clicks",
+  description:
+    "RevOps helps you build predictable revenue by aligning sales and marketing, optimizing growth systems, and creating high-intent customer journeys. Turn your marketing into real customers—not just clicks.",
+  keywords: [
+    "RevOps",
+    "Marketing Optimization",
+    "Sales and Marketing Alignment",
+    "Lead Generation",
+    "Demand Generation",
+    "B2B Growth",
+    "Predictable Revenue",
+    "Marketing Strategy",
+    "Pipeline Growth",
+    "Marketing Automation",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
+  openGraph: {
+    title: "RevOps – Unlock Predictable Growth",
+    description:
+      "We turn your marketing into customers—not just clicks. Build aligned sales & marketing systems, optimize your pipeline, and grow with predictable revenue.",
+    url: "https://revops-rho.vercel.app/",
+    siteName: "RevOps",
+    images: [
+      {
+        url: "/assets/og-Image.webp",
+        width: 1200,
+        height: 630,
+        alt: "RevOps – Home Page",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RevOps – Turn Marketing Into Customers",
+    description:
+      "Align marketing & sales, optimize your growth systems, and create predictable revenue with RevOps.",
+    images: ["/assets/og-Image.webp"],
   },
 };
+
 
 export default function RootLayout({
   children,
@@ -30,7 +77,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${playfair.variable} ${poppins.variable} font-poppins antialiased`}
       >
         <Header/>
         {children}
