@@ -36,15 +36,15 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 855.2964893931401,
-			"y": 638.3653336693881,
-			"lastActivityTimestamp": 1764396882868,
+			"x": 321.688392921812,
+			"y": 65.31294600140346,
+			"lastActivityTimestamp": 1764420960863,
 			"meta": {}
 		},
 		{
-			"x": 663.2538712822075,
-			"y": 105.59306719164134,
-			"z": 0.5484177603583698,
+			"x": 607.112165123204,
+			"y": 102.66565356860018,
+			"z": 0.5286387866018086,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -77,6 +77,11 @@
 							"content": [
 								{
 									"type": "text",
+									"marks": [
+										{
+											"type": "highlight"
+										}
+									],
 									"text": "blogs"
 								}
 							]
@@ -89,6 +94,11 @@
 							"content": [
 								{
 									"type": "text",
+									"marks": [
+										{
+											"type": "highlight"
+										}
+									],
 									"text": "blogs detail page"
 								}
 							]
@@ -157,13 +167,35 @@
 							"type": "paragraph",
 							"attrs": {
 								"dir": "auto"
-							}
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "highlight"
+										}
+									],
+									"text": "header-done"
+								}
+							]
 						},
 						{
 							"type": "paragraph",
 							"attrs": {
 								"dir": "auto"
-							}
+							},
+							"content": [
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "highlight"
+										}
+									],
+									"text": "footer"
+								}
+							]
 						}
 					]
 				}
@@ -386,12 +418,12 @@
 			"typeName": "shape"
 		},
 		{
-			"editingShapeId": "shape:_c0l4-jrgeO4yiR6M0IRd",
+			"editingShapeId": "shape:ruyVfJy6xv7-JTgyqxtM1",
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:_c0l4-jrgeO4yiR6M0IRd"
+				"shape:ruyVfJy6xv7-JTgyqxtM1"
 			],
-			"hoveredShapeId": null,
+			"hoveredShapeId": "shape:c8HH5SqM4Sj0mO7_hfOfY",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -465,6 +497,11 @@
 							"content": [
 								{
 									"type": "text",
+									"marks": [
+										{
+											"type": "highlight"
+										}
+									],
 									"text": "contact-us  "
 								}
 							]
@@ -491,8 +528,8 @@
 			"typeName": "document"
 		},
 		{
-			"x": 353.8000183105469,
-			"y": 22.200000762939453,
+			"x": 364.9538326873095,
+			"y": 32.11456021337682,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -523,14 +560,33 @@
 							]
 						},
 						{
-							"type": "paragraph",
+							"type": "orderedList",
 							"attrs": {
-								"dir": "auto"
+								"start": 1,
+								"type": null
 							},
 							"content": [
 								{
-									"type": "text",
-									"text": "1.roboto.txt"
+									"type": "listItem",
+									"content": [
+										{
+											"type": "paragraph",
+											"attrs": {
+												"dir": "auto"
+											},
+											"content": [
+												{
+													"type": "text",
+													"marks": [
+														{
+															"type": "highlight"
+														}
+													],
+													"text": "roboto.txt -done"
+												}
+											]
+										}
+									]
 								}
 							]
 						},
@@ -552,7 +608,12 @@
 											"content": [
 												{
 													"type": "text",
-													"text": "sitemap"
+													"marks": [
+														{
+															"type": "highlight"
+														}
+													],
+													"text": "sitemap - done"
 												}
 											]
 										}
@@ -569,7 +630,12 @@
 											"content": [
 												{
 													"type": "text",
-													"text": "og image"
+													"marks": [
+														{
+															"type": "highlight"
+														}
+													],
+													"text": "og image-done"
 												}
 											]
 										}
@@ -676,17 +742,6 @@
 											]
 										}
 									]
-								},
-								{
-									"type": "listItem",
-									"content": [
-										{
-											"type": "paragraph",
-											"attrs": {
-												"dir": "auto"
-											}
-										}
-									]
 								}
 							]
 						},
@@ -720,8 +775,8 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1260,
-				"h": 616
+				"w": 1155.2000732421875,
+				"h": 598.4000244140625
 			},
 			"insets": [
 				false,
@@ -738,7 +793,7 @@
 			"isFocused": true,
 			"devicePixelRatio": 1.25,
 			"isCoarsePointer": false,
-			"isHoveringCanvas": true,
+			"isHoveringCanvas": false,
 			"openMenus": [],
 			"isChangingStyle": false,
 			"isReadonly": false,

@@ -16,6 +16,7 @@ body {
   --color-gray: #454545;
   --color-black: #0A0A0A;
   --color-green: #26DF04;
+  --color:greenShade:#215817;
   --color-darkgreen: #014715;
   --color-lightDarkGreen: #0D5001;
   --color-white: #FFFFFF;
@@ -249,6 +250,8 @@ body {
   }
 }
 
+
+
 @layer utilities {
   .gradient {
     background: #199103;
@@ -261,13 +264,9 @@ body {
   }
 
   .radialGlow {
-    background: radial-gradient(100% 100% at 60% 50%,
-        rgba(38, 223, 4, 1) 10%,
-        rgba(21, 121, 2, 1) 56%,
-        rgba(0, 0, 0, 0) 100%);
+   background-color: rgba(0, 234, 108, 1);
+background: radial-gradient(100% 100% at 40.8% 36.7%, rgba(0, 234, 108, 1) 0%, rgba(38, 223, 4, 1) 24.15%, rgba(22, 34, 26, 1) 72.44%, rgba(23, 26, 23, 1) 94.58%, rgba(255, 195, 113, 1) 100%);
 
-    filter: blur(160px);
-    position: absolute;
   }
 
   @keyframes fad-in {
@@ -292,9 +291,22 @@ body {
     }
   }
 
+  @keyframes smooth-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.smooth-spin {
+  animation: smooth-rotate 8s linear infinite;
+}
+
   @font-face {
     font-family: "Helvetica Now Display";
-    src: url("/fonts/HelveticaNowDisplay-Medium.woff2") format("woff2");
+    src: url("/font/HelveticaNowDisplay-Medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal;
   }
@@ -302,14 +314,14 @@ body {
 
   @font-face {
     font-family: "Helvetica Now Display";
-    src: url("/fonts/HelveticaNowDisplay-Bold.woff2") format("woff2");
+    src: url("/font/HelveticaNowDisplay-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Helvetica Now Display";
-    src: url("/fonts/HelveticaNowDisplay-Regular.woff2") format("woff2");
+    src: url("/font/HelveticaNowDisplay-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
   }

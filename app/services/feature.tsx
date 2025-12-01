@@ -10,7 +10,7 @@ export default function Feature() {
         <div className=" flex justify-center items-center flex-col text-center">
           <Heading title="Featured in" color="#26DF04" />
           <h2 className="custom-text-3xl font-bold text-black py-2">
-            100+ <i className="font-normal">Companies</i> trusted us <br /> to
+            100+ <i className="font-normal font-family-playfair">Companies</i> trusted us <br /> to
             improve their <i className="font-normal">marketing</i>
           </h2>
         </div>

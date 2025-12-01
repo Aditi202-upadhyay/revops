@@ -49,9 +49,9 @@ export default function FAQ() {
       <div className="w-container-xs">
         <div className="flex justify-center items-center flex-col text-center">
           <Heading title="Frequently asked questions" color="#014715" />
-          <h2 className="custom-text-3xl font-bold text-black py-2">
+          <h2 className="custom-text-3xl font-bold text-black py-2 font-family-helvetica-now">
             Find the{" "}
-            <i className="font-normal">
+            <i className="font-normal font-family-playfair">
               answers to your <br />
               questions
             </i>{" "}
@@ -90,11 +90,11 @@ const FAQUi = React.memo(function FAQUi({
         className="flex justify-between items-center cursor-pointer px-2"
         onClick={onClick}
       >
-        <h4 className="custom-text-md text-black font-medium">
+        <h4 className="custom-text-md text-black font-medium font-family-helvetica-now">
           {data.question}
         </h4>
 
-        <div className="p-px rounded-full bg-linear-to-r from-green to-darkgreen">
+        <div className="p-px  rounded-full bg-linear-to-r from-green to-darkgreen">
           <button className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-[#D3D3D3] lg:text-2xl text-darkgreen flex items-center justify-center hover:bg-darkgreen hover:text-white transition-all">
             {isOpen ? <GoArrowUpRight /> : <GoArrowDownRight />}
           </button>
@@ -102,7 +102,7 @@ const FAQUi = React.memo(function FAQUi({
       </div>
 
         {isOpen && (
-            <p className="custom-tag-text text-gray font-normal  animate-fade-in">
+            <p className="custom-tag-text text-gray font-normal  animate-fade-in font-family-helvetica-now">
             {data.answer}
             </p>
         )}

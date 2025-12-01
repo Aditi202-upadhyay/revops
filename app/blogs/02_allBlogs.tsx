@@ -236,7 +236,7 @@ import Link from "next/link";
       <div className="w-container-xl">
         <Tabs allTabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
 
-        <div className="blade-top-padding-sm grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9">
+        <div className="blade-top-padding-sm grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-9">
           {activeTabData?.details.map((blog, index) => (
             <Card key={index} {...blog} />
           ))}
@@ -258,7 +258,7 @@ import Link from "next/link";
 
 export  const Card = ({ image, date, heading, link }: CardProps) => {
   return (
-    <Link href={link}>
+    <Link href={link} rel=" noopener noreferrer">
       <div className="relative h-[16rem] xl:h-[20rem]">
         <Image
           src={image}
@@ -268,10 +268,10 @@ export  const Card = ({ image, date, heading, link }: CardProps) => {
           alt="Blog Image"
         />
       </div>
-      <h5 className="text-gray custom-text-para py-2">{date}</h5>
-      <p className="font-medium text-black custom-text-md">{heading}</p>
-       <p className="text-darkgreen font-bold custom-text-para py-2 flex gap-2">
-        Read more  <Greenbutton color="#fff" />
+      <h5 className="text-gray custom-text-para py-2 font-family-helvetica-now">{date}</h5>
+      <p className="font-medium text-black custom-text-md font-family-helvetica-now">{heading}</p>
+       <p className="text-darkgreen font-bold text-base py-2 flex gap-2 font-family-helvetica-now">
+        Read more  <Greenbutton color="#fff" style={{background:"linear-gradient(90deg, #2CFE05 -23.73%, #0D5001 186.15%)"}} />
       </p>
     </Link>
   );

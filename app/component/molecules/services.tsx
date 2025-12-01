@@ -20,10 +20,10 @@ export default function GlobalService({serviceData}:{serviceData:ParentsCom}) {
       <div className="w-container-xl">
         <Heading title="Our Services" color="#014715" />
         <div className="lg:flex justify-between pt-4 lg:pt-6">
-          <h3 className="font-bold text-black custom-text-2xl" dangerouslySetInnerHTML={{__html:serviceData.heading}} />
+          <h3 className="font-bold text-black custom-text-2xl font-family-helvetica-now" dangerouslySetInnerHTML={{__html:serviceData.heading}} />
            
           
-          <p className="font-normal custom-text-md text-gray w-full lg:max-w-md xl:max-w-xl pt-2 lg:pt-0">
+          <p className="font-normal font-family-helvetica-now    custom-text-md text-gray w-full lg:max-w-md xl:max-w-xl pt-2 lg:pt-0">
             {serviceData.description}
           </p>
         </div>
@@ -50,16 +50,16 @@ const Services = ({ details }: { details: ServiceProps }) => {
           <div className="md:my-4 ">
             <div className="flex gap-2  items-center">
               <div className="custom-text-base text-gray">{details.id}.</div>
-              <h3 className="custom-text-xl font-medium text-transparent bg-clip-text bg-linear-to-t from-darkgreen from-35%  to-green">{details.heading}</h3>
+              <h3 className="custom-text-xl font-family-helvetica-now font-medium text-transparent bg-clip-text bg-linear-to-t from-darkgreen from-35%  to-green">{details.heading}</h3>
             </div>
             <div>
-               <p className="text-gray max-w-xs custom-text-md ps-0 md:ps-10 pt-2">{details.description}</p>
+               <p className="text-gray max-w-md font-family-helvetica-now  custom-text-md ps-0 md:ps-10 pt-2">{details.description}</p>
             </div>
            
           </div>
            <div className="flex gap-2 ">
               <p className="text-darkgreen font-bold custom-text-md text-nowrap">Know more </p>
-              <Greenbutton color="#fff"/>
+              <Greenbutton color="#fff" style={{background:"linear-gradient(90deg, #2CFE05 -23.73%, #0D5001 186.15%)"}}/>
            </div>
         </div>
 

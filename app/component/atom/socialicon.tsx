@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export const SocialIcon = ({ icon, href,color }: { icon: string; href: string;color:string }) => (
   <div  style={{ border: `1px solid ${color}` }} className={` p-1 rounded-md`}>
-    <a
+    <Link
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`w-6 h-6 flex items-center justify-center text-[${color}] hover:text-white/70 transition-colors`} 
+      className={`w-6 h-6 flex items-center justify-center text-[${color}] hover:text-white/70 transition-all duration-500 hover:scale-125`} 
     >
       {icon === "youtube" && (
         <svg
@@ -81,6 +83,6 @@ export const SocialIcon = ({ icon, href,color }: { icon: string; href: string;co
           />
         </svg>
       )}
-    </a>
+    </Link>
   </div>
 );

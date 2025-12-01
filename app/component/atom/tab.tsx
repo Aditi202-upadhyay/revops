@@ -14,7 +14,7 @@ export default function Tabs({ allTabs, activeTab, onTabChange }: TabProps) {
           <button
             key={index}
             onClick={() => onTabChange(tab)}
-            className={`transition-all text-xs md:text-lg cursor-pointer px-2 md:px-6 py-1.5 md:py-3 rounded-full flex items-center gap-1 md:gap-1.5
+            className={`transition-all text-[13px] font-family-helvetica-now md:text-lg cursor-pointer px-2 md:px-6 py-1.5 md:py-3 rounded-full flex items-center gap-1 md:gap-1.5
               ${
                 activeTab === tab
                   ? "bg-green text-white"

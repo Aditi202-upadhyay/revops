@@ -6,13 +6,13 @@ export default function ContactUs() {
     <section className="mt-28 lg:mt-40 ">
       <div className="w-container  h-fit flex flex-col lg:flex-row  lg:justify-between ">
         <div className=" w-full  flex flex-col justify-center items-center lg:justify-start lg:items-start lg:w-[60%] mb-4 md:mb-8">
-          <Heading title="Get in touch" />
-          <h4 className="text-black font-bold custom-text-3xl py-4 text-center lg:text-left">
-            Have a <span className="italic font-normal">Project</span> in mind?
+          <Heading title="Get in touch" color="#014715" />
+          <h1 className="text-black font-bold custom-text-3xl font-family-helvetica-now py-4 text-center lg:text-left animate-fade-up-slower">
+            Have a <i className="italic font-normal font-family-playfair">Project  </i> &nbsp;in mind?
             <br /> improve their{" "}
-            <span className="italic font-normal">marketing</span>
-          </h4>
-          <p className="text-gray text-center lg:text-left">
+            <i className="italic font-normal font-family-playfair">marketing</i>
+          </h1>
+          <p className="text-gray text-center lg:text-left custom-text-md  font-family-helvetica-now animate-fade-up-slower">
             Your vision deserves a partner who listens, challenges <br /> and
             elevates. Share your project with us.
           </p>

@@ -48,10 +48,10 @@ const DecorativeIconReverse = () => (
 );
 export const Heading = ({title,color}:{title:string,color?:string}) => {
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex gap-2 items-center animate-fade-up-slower">
       <DecorativeIcon />
        <h4
-        className="font-helvetica-now custom-text-lg"
+        className="font-helvetica-now font-medium custom-text-lg "
         style={{ color }}
       >
         {title}

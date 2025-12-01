@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +9,11 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import { Heading } from "../atom/decorativeHeading";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import gsap from 'gsap'
+
+
+
+
 
 export default function GlobalTestimonial() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -18,6 +23,9 @@ export default function GlobalTestimonial() {
     setActiveIndex(index);
     swiperInstance?.slideTo(index);
   };
+
+
+
 
   return (
     <section className="blade-top-padding-lg blade-bottom-padding-lg">
@@ -31,9 +39,9 @@ export default function GlobalTestimonial() {
       >
         <div className="blade-top-padding-sm blade-bottom-padding-sm flex justify-center flex-col items-center px-4 md:px-0">
           <Heading title="Testimonials" color="#ffff" />
-          <h3 className="custom-text-3xl text-white italic font-normal text-center my-2">
+          <h3 className="custom-text-3xl text-white italic font-normal text-center my-2 font-family-playfair">
             Proof of Growth,{" "}
-            <b className="not-italic">
+            <b className="not-italic font-family-helvetica-now">
               Straight <br /> From
             </b>{" "}
             Our Clients
@@ -55,8 +63,8 @@ export default function GlobalTestimonial() {
               >
                 {usersDetails.map((user, index) => (
                   <SwiperSlide key={index}>
-                    <div>
-                      <div className="my-2">
+                    <div  className="">
+                      <div className="my-2 ">
                         <div className="relative w-24 h-24 mx-auto">
                           <Image
                             src={user.image}
@@ -65,18 +73,19 @@ export default function GlobalTestimonial() {
                             className="object-cover w-full h-full rounded-xl"
                           />
                         </div>
-                        <h5 className="text-white font-medium custom-text-lg pt-2">
+                        <h5 className="text-white  font-medium custom-text-lg pt-2 font-family-helvetica-now">
                           {user.name}
                         </h5>
-                        <p className="text-white text-base">
+                        <p className="text-white text-base font-family-helvetica-now">
                           {user.designation}
                         </p>
                       </div>
 
-                      <h5 className="custom-text-lg font-bold text-white my-2 md:my-4">
+                      <h5 className="custom-text-lg  font-bold text-white my-2 md:my-4 font-family-helvetica-now">
                         {user.heading}
                       </h5>
-                      <p className="text-white custom-text-md">
+                      <p className="text-white custom-text-md 
+                       font-family-helvetica-now">
                         {user.description}
                       </p>
                     </div>

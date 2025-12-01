@@ -3,20 +3,19 @@ import { Heading } from "../component/atom/decorativeHeading";
 export default function Solution() {
   return (
     <section className=" blade-top-padding-lg blade-bottom-padding-lg">
-      <div className="w-full h-screen relative ">
-        <video
-          src="/assets/home/backgroundVideo.mp4"
-          autoPlay
-          loop
-          muted
-          className="w-full h-full object-cover"
-        ></video>
-        <div className="absolute inset-0 bg-gradient-to-b from-darkgreen via-55% via-[#215817]/60 to-black"></div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
+      <div className="w-full h-screen z-20 relative">
+      
+              <div className="absolute inset-0 ">
+                    <video src="/assets/home/backgroundVideo.mp4" autoPlay loop muted className="opacity-60 w-full h-full object-cover"/>
+                    <div className="absolute inset-0 bg-gradient-to-l from-[#215817]  to-[#215817] mix-blend-color"></div>
+                </div>
+        
+       
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-30">
           <Heading title="Solutions" color="#fff" />
-          <h3 className="font-bold text-white custom-text-3xl text-center pt-2">
-            100+ <i className="font-normal">Companies</i> trusted us <br /> to
-            improve their <i className="font-normal">marketing</i>
+          <h3 className="font-bold text-white custom-text-3xl text-center pt-2 font-family-helvetica-now">
+            100+ <i className="font-normal font-family-playfair">Companies</i> trusted us <br /> to
+            improve their <i className="font-normal font-family-playfair">marketing</i>
           </h3>
            <div className="mt-10 flex flex-col md:flex-row gap-4 xl:gap-8 px-4">
     {solutionsData.map((ele, index) => (
@@ -67,10 +66,10 @@ const Card = ({data}:{data:solutionProps}) => {
       <div className="relative z-10 flex flex-col justify-between h-full">
         <div className="flex gap-2 items-center">
           <div className="w-2 h-2 bg-green"></div>
-          <h5 className="text-white font-medium custom-text-lg">{data.heading}</h5>
+          <h5 className="text-white font-medium custom-text-lg font-family-helvetica-now">{data.heading}</h5>
         </div>
 
-        <p className="text-white mt-4 md:mt-0">
+        <p className="text-white mt-4 md:mt-0 font-family-helvetica-now">
          {data.description}
         </p>
       </div>
@@ -78,5 +77,3 @@ const Card = ({data}:{data:solutionProps}) => {
     </div>
   );
 };
-
-

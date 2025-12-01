@@ -92,8 +92,10 @@ export default function ContactUsForm() {
             />
 
             <button
+             arial-label="form submit"
+             style={{background:"linear-gradient(98deg, #2CFE05 -49.29%, #000 151.67%)"}}
               type="submit"
-              className="buttonGradient text-white px-10 xl:px-12 py-3 xl:py-4 custom-text-md rounded-full"
+              className=" text-white cursor-pointer px-10 xl:px-12 py-3 xl:py-4 custom-text-md rounded-full font-family-helvetica-now"
             >
               Submit
             </button>
@@ -115,7 +117,7 @@ const FieldInput = ({ name, placeholder, errors, touched, as }:FieldProps) => (
       as={as}
       name={name}
       placeholder={placeholder}
-      className={`appearance-none w-full focus:bg-none py-3 px-5 pr-10 bg-white text-gray/50 border border-[#DBDBDB] rounded-md 
+      className={`appearance-none w-full focus:bg-none py-3 px-5 pr-10 bg-white text-lg text-gray font-family-helvetica-now border border-[#DBDBDB] rounded-md 
         focus:outline-none
         focus:border-green
         focus:shadow-[0_0_0_6px_rgba(255,255,255,0.47),5px_7px_4px_-5px_rgba(128,211,246,0.42),-1px_5px_4px_-2px_#D8C778,-5px_-5px_3.5px_-3px_rgba(242,136,156,0.27)]
@@ -132,9 +134,9 @@ const FieldInput = ({ name, placeholder, errors, touched, as }:FieldProps) => (
 const SuccessPop = ({ onClose }:{onClose:()=>void} ) =>{
   return (
     <div className="relative w-[90%] max-w-[35rem] p-[2px] rounded-2xl shadow-md">
-      <div className="bg-white rounded-2xl px-4 md:px-10 py-4 md:py-12 text-center">
+      <div className="bg-white rounded-2xl px-4 md:px-10 py-4 md:py-12 text-center animate-fade-up">
         {/* SUCCESS ICON */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-6 ">
           <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
             <svg
               width="50"
@@ -152,12 +154,12 @@ const SuccessPop = ({ onClose }:{onClose:()=>void} ) =>{
         </div>
 
         {/* TITLE */}
-        <h2 className="text-2xl font-semibold text-black mb-2">
+        <h2 className="text-lg xl:text-2xl font-semibold text-black mb-2 font-family-helvetica-now">
           Message sent successfully
         </h2>
 
         {/* SUBTEXT */}
-        <p className="text-gray-600 text-base leading-relaxed">
+        <p className="text-gray font-family-helvetica-now text-base ">
           Thank you for reaching out. We receive many inquiries daily and our
           team is dedicated to addressing each one. Please allow us up to 3
           business days to respond.
@@ -165,8 +167,9 @@ const SuccessPop = ({ onClose }:{onClose:()=>void} ) =>{
 
         {/* CLOSE BUTTON */}
         <button
+         arial-label="success popup close"
           onClick={onClose}
-          className="mt-8 bg-lightDarkGreen cursor-pointer text-white px-10 py-3 rounded-xl font-medium hover:bg-darkBlue/80 transition"
+          className="mt-8 bg-lightDarkGreen  cursor-pointer text-white px-10 py-3 rounded-xl font-medium  transition font-family-helvetica-now"
         >
           Close
         </button>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Poppins } from 'next/font/google';
+import { Playfair_Display} from 'next/font/google';
 import "./globals.css";
 import Footer from "./component/organism/footer";
 import Header from "./component/organism/header";
@@ -15,16 +15,17 @@ export const metadata: Metadata = {
   title: "RevOps – Turn Marketing Into Customers, Not Just Clicks",
   description:
     "RevOps helps you build predictable revenue by aligning sales and marketing, optimizing growth systems, and creating high-intent customer journeys. Turn your marketing into real customers—not just clicks.",
+    icons:{
+       icon: "/whiteFavicon.svg",
+  },
   keywords: [
     "RevOps",
     "Marketing Optimization",
-    "Sales and Marketing Alignment",
     "Lead Generation",
     "Demand Generation",
     "B2B Growth",
     "Predictable Revenue",
     "Marketing Strategy",
-    "Pipeline Growth",
     "Marketing Automation",
   ],
   robots: {
@@ -34,6 +35,9 @@ export const metadata: Metadata = {
     "max-image-preview": "large",
     "max-snippet": -1,
     "max-video-preview": -1,
+  },
+   alternates: {
+    canonical: "https://revops-rho.vercel.app/",
   },
   openGraph: {
     title: "RevOps – Unlock Predictable Growth",

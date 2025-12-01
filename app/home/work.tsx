@@ -4,13 +4,13 @@ import Image from "next/image";
 
 export default function Work({data}:{data:parentProp}) {
   return (
-    <section className="blade-bottom-padding-lg ">
+    <section className="">
       <div className="w-container-sm">
         <div className="flex justify-center flex-col items-center">
           <Heading title={data.heading} color="#000" />
 
           <h2
-            className="custom-text-3xl font-bold text-black text-center pt-2"
+            className="custom-text-3xl font-bold text-black text-center pt-2 font-family-helvetica-now"
             dangerouslySetInnerHTML={{ __html: data.subHeading }}
           />
         </div>
@@ -65,12 +65,12 @@ const CardUI = ({ data }: { data: workProps }) => {
             className="object-contain "
           />
         </div>
-        <h5 className="custom-text-base text-lightDarkGreen font-medium max-w-md">
+        <h5 className="custom-text-base text-lightDarkGreen font-medium max-w-md font-family-helvetica-now">
           {data.heading}
         </h5>
 
         <div className="my-2 md:my-4 xl:my-6">
-          <span className="text-lightDarkGreen font-bold custom-text-md ">
+          <span className="text-lightDarkGreen font-bold custom-text-md font-family-helvetica-now">
             Know more <Greenbutton color="white" />
           </span>
         </div>
@@ -82,7 +82,7 @@ const CardUI = ({ data }: { data: workProps }) => {
               <span className="w-2 h-2 bg-green inline-block "></span>
 
               {/* Text */}
-              <p className="text-md text-black whitespace-nowrap">{ele}</p>
+              <p className="text-md text-black whitespace-nowrap font-family-helvetica-now">{ele}</p>
             </div>
           ))}
         </div>

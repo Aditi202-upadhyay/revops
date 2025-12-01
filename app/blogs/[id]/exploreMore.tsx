@@ -4,7 +4,7 @@ export default function ExploreMore(){
     return(
         <section className="blade-top-padding-lg blade-bottom-padding-lg">
             <div className="w-container-xl">
-                <h3 className="font-semibold text-black custom-text-3xl text-center">Explore more <i className="font-normal">ideas and <br/> insights</i> crafted by marketers</h3>
+                <h3 className="font-semibold text-black custom-text-3xl text-center font-family-helvetica-now">Explore more <i className="font-normal font-family-playfair">ideas and <br/> insights</i> crafted by marketers</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 blade-top-margin-sm">
                   {exploreData.map((element,index)=>{
                    return(

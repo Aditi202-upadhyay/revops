@@ -2,16 +2,18 @@ import FAQ from "../component/molecules/faqQuestion";
 import Impact from "../home/impact";
 import Testimonial from "../home/testimonial";
 import Work, { parentProp } from "../home/work";
+import Banner from "./banner";
 import Feature from "./feature";
-import Process from "./process";
-import WhyRevops from "./why-revops";
+import WhyChoose from "./why-revops";
+
 
 export default function Services(){
     return(
        <>
+       <Banner/>  
         <Impact/>
-        {/* <WhyRevops/> */}
-        <Process/>
+        <WhyChoose/>
+            {/* <Process/> */}
         <Feature/>
         <Testimonial/>
         <Work data={workData}/>
