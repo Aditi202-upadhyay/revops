@@ -82,7 +82,7 @@ export default function WhyChoose() {
 
 function ServiceCard({ service }: { service: ServiceCard }) {
   return (
-    <div className="relative group h-[30rem] rounded-lg border-2 border-green bg-black/40 backdrop-blur-sm p-6 flex flex-col justify-between hover:border-green transition-all overflow-hidden">
+    <div className="relative group  h-[20rem] md:h-[30rem] rounded-lg border-2 border-green bg-black/40 backdrop-blur-sm p-6 flex flex-col justify-between hover:border-green transition-all overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#26DF04,transparent_70%)] opacity-0 group-hover:opacity-20 transition-opacity z-0" />
 
       <div className="relative z-10 ">
@@ -98,7 +98,7 @@ function ServiceCard({ service }: { service: ServiceCard }) {
       </div>
 
        <div className="relative w-full h-full"> 
-         <Image src={service.visual} alt={service.title} fill className="object-cover object-bottom mix-blend-color-burn"/>
+         <Image src={service.visual} alt={service.title} fill className="object-contain object-bottom mix-blend-color-burn"/>
        </div>
 
 
