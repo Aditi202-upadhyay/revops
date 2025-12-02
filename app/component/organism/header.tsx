@@ -133,7 +133,7 @@ const NavLink = ({ label, href }: NavLinks) => {
 
 const NavDropDown = () => {
   return (
-    <div className="flex  gap-8 xl:gap-14 animate-nav-link">
+    <div className="flex  gap-8 xl:gap-14 animate-nav-link ">
       {navDropDown.map((dropdown, idx) => (
         <DropdownMenu key={idx}>
           <DropdownMenuTrigger className="group !text-base xl:!text-lg !text-black !font-family-helvetica-now hover:!text-green outline-none cursor-pointer">
