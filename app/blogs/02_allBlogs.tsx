@@ -236,7 +236,7 @@ import Link from "next/link";
       <div className="w-container-xl">
         <Tabs allTabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
 
-        <div className="blade-top-padding-sm grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-9">
+        <div className="blade-top-padding-sm grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-9">
           {activeTabData?.details.map((blog, index) => (
             <Card key={index} {...blog} />
           ))}
@@ -265,12 +265,12 @@ export  const Card = ({ image, date, heading, link }: CardProps) => {
           fill
            loading="eager"
           className="object-cover rounded-md"
-          alt="Blog Image"
+          alt={heading}
         />
       </div>
-      <h5 className="text-gray custom-text-para py-2 font-family-helvetica-now">{date}</h5>
+      <h5 className="text-gray custom-text-para py-2 md:py-4 font-family-helvetica-now">{date}</h5>
       <p className="font-medium text-black custom-text-md font-family-helvetica-now">{heading}</p>
-       <p className="text-darkgreen font-bold text-base py-2 flex gap-2 font-family-helvetica-now">
+       <p className="text-darkgreen font-bold custom-text-md py-4 flex gap-2 font-family-helvetica-now">
         Read more  <Greenbutton color="#fff" style={{background:"linear-gradient(90deg, #2CFE05 -23.73%, #0D5001 186.15%)"}} />
       </p>
     </Link>

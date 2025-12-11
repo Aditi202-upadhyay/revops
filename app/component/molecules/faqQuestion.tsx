@@ -51,7 +51,7 @@ export default function FAQ() {
           <Heading title="Frequently asked questions" color="#014715" />
           <h2 className="custom-text-3xl font-bold text-black py-2 font-family-helvetica-now">
             Find the{" "}
-            <i className="font-normal font-family-playfair">
+            <i className="font-normal font-playfair">
               answers to your <br />
               questions
             </i>{" "}
@@ -95,7 +95,7 @@ const FAQUi = React.memo(function FAQUi({
         </h4>
 
         <div className="p-px  rounded-full bg-linear-to-r from-green to-darkgreen">
-          <button className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-[#D3D3D3] lg:text-2xl text-darkgreen flex items-center justify-center hover:bg-darkgreen hover:text-white transition-all">
+          <button className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-white lg:text-2xl text-darkgreen flex items-center justify-center hover:bg-darkgreen hover:text-white transition-all">
             {isOpen ? <GoArrowUpRight /> : <GoArrowDownRight />}
           </button>
         </div>

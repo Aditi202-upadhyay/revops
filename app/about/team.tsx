@@ -10,9 +10,9 @@ export default function Team() {
           <div className="flex justify-center items-center flex-col">
             <Heading title="Our Team" color="#014715" />
             <h2 className="custom-text-3xl font-bold text-center text-black py-2 font-family-helvetica-now">
-             A<i className="font-normal font-family-playfair">{" "}small team  </i>{" "}
+             A<i className="font-normal font-playfair">{" "}small team  </i>{" "}
               that delivers big, <br/>
-              <i className="font-normal font-family-playfair"> measurable results</i>
+              <i className="font-normal font-playfair"> measurable results</i>
             </h2>
          
           </div>

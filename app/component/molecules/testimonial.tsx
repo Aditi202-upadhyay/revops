@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,10 +9,6 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import { Heading } from "../atom/decorativeHeading";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
-import gsap from 'gsap'
-
-
-
 
 
 export default function GlobalTestimonial() {
@@ -24,11 +20,8 @@ export default function GlobalTestimonial() {
     swiperInstance?.slideTo(index);
   };
 
-
-
-
   return (
-    <section className="blade-top-padding-lg blade-bottom-padding-lg">
+    <section className="blade-top-padding-lg">
       <div
         style={{
           backgroundImage: "url('/assets/home/textimonialBackground.png')",
@@ -39,7 +32,7 @@ export default function GlobalTestimonial() {
       >
         <div className="blade-top-padding-sm blade-bottom-padding-sm flex justify-center flex-col items-center px-4 md:px-0">
           <Heading title="Testimonials" color="#ffff" />
-          <h3 className="custom-text-3xl text-white italic font-normal text-center my-2 font-family-playfair">
+          <h3 className="custom-text-3xl text-white italic font-normal text-center my-2 font-playfair">
             Proof of Growth,{" "}
             <b className="not-italic font-family-helvetica-now">
               Straight <br /> From
@@ -48,7 +41,7 @@ export default function GlobalTestimonial() {
           </h3>
 
           {/* MAIN SWIPER */}
-          <div className="relative w-full flex justify-center items-center">
+          <div className="relative w-full flex justify-center items-center ">
             {/* CUSTOM BUTTONS */}
             <SwiperButtons swiper={swiperInstance} />
 
@@ -63,7 +56,7 @@ export default function GlobalTestimonial() {
               >
                 {usersDetails.map((user, index) => (
                   <SwiperSlide key={index}>
-                    <div  className="">
+                    <div className="">
                       <div className="my-2 ">
                         <div className="relative w-24 h-24 mx-auto">
                           <Image
@@ -73,19 +66,21 @@ export default function GlobalTestimonial() {
                             className="object-cover w-full h-full rounded-xl"
                           />
                         </div>
-                        <h5 className="text-white  font-medium custom-text-lg pt-2 font-family-helvetica-now">
+                        <h5 className="text-white  font-medium custom-text-md pt-2 font-family-helvetica-now">
                           {user.name}
                         </h5>
-                        <p className="text-white text-base font-family-helvetica-now">
+                        <p className="text-white/80  text-base font-family-helvetica-now">
                           {user.designation}
                         </p>
                       </div>
 
-                      <h5 className="custom-text-lg  font-bold text-white my-2 md:my-4 font-family-helvetica-now">
+                      <h5 className="custom-text-xl  font-bold text-white my-2 md:my-4 font-family-helvetica-now">
                         {user.heading}
                       </h5>
-                      <p className="text-white custom-text-md 
-                       font-family-helvetica-now">
+                      <p
+                        className="text-white/80 custom-text-md 
+                       font-family-helvetica-now"
+                      >
                         {user.description}
                       </p>
                     </div>
@@ -117,6 +112,30 @@ export default function GlobalTestimonial() {
                 />
               </div>
             ))}
+          </div>
+
+          <div className="mt-6 space-x-4 lg:hidden block">
+            <button
+              onClick={() => swiperInstance?.slidePrev()}
+              style={{
+                background:
+                  "linear-gradient(90deg, #2CFE05 -23.73%, #FFF 186.15%)",
+              }}
+              className=" text-white cursor-pointer px-4 md:px-6 py-2  rounded-full"
+            >
+              <FaArrowLeftLong />
+            </button>
+
+            <button
+             onClick={() => swiperInstance?.slideNext()}
+              style={{
+                background:
+                  "linear-gradient(90deg, #2CFE05 -23.73%, #FFF 186.15%)",
+              }}
+              className="text-white cursor-pointer px-4 md:px-6 py-2  rounded-full"
+            >
+              <FaArrowRightLong />
+            </button>
           </div>
         </div>
       </div>
@@ -171,19 +190,25 @@ const usersDetails = [
 
 /* -------------- CUSTOM BUTTON COMPONENT -------------- */
 
-const SwiperButtons = ({ swiper }: { swiper: SwiperType | null }) => {
+export const SwiperButtons = ({ swiper }: { swiper: SwiperType | null }) => {
   return (
-    <div className=" hidden absolute top-1/2 left-0 w-full lg:flex justify-between lg:px-14 xl:px-32 -translate-y-1/2 z-20">
+    <div className="hidden  absolute  lg:top-1/2 lg:left-0 w-full lg:flex justify-between lg:px-14 xl:px-48 3xl:px-[20rem] -translate-y-1/2 z-20">
       <button
+        style={{
+          background: "linear-gradient(90deg, #2CFE05 -23.73%, #FFF 186.15%)",
+        }}
         onClick={() => swiper?.slidePrev()}
-        className=" text-white cursor-pointer px-3 md:px-6 py-2 bg-green rounded-full"
+        className=" text-white cursor-pointer px-3 md:px-6 py-2  rounded-full"
       >
         <FaArrowLeftLong />
       </button>
 
       <button
+        style={{
+          background: "linear-gradient(90deg, #2CFE05 -23.73%, #FFF 186.15%)",
+        }}
         onClick={() => swiper?.slideNext()}
-        className="text-white cursor-pointer px-3 md:px-6 py-2 bg-green rounded-full"
+        className="text-white cursor-pointer px-3 md:px-6 py-2  rounded-full"
       >
         <FaArrowRightLong />
       </button>

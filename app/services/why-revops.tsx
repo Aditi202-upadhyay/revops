@@ -54,13 +54,13 @@ export default function WhyChoose() {
           <Heading title="Why Revops" color="#26DF04" />
           <h1 className="custom-text-3xl font-bold text-white max-w-4xl font-family-helvetica-now my-2 px-2">
             100+{" "}
-            <span className="italic font-light font-family-playfair">
+            <span className="italic font-light font-playfair">
               Companies
             </span>{" "}
             trusted us
             <br />
             to improve their{" "}
-            <span className="italic font-light font-family-playfair">
+            <span className="italic font-light font-playfair">
               marketing
             </span>
           </h1>
@@ -82,17 +82,17 @@ export default function WhyChoose() {
 
 function ServiceCard({ service }: { service: ServiceCard }) {
   return (
-    <div className="relative group  h-[25rem] lg:h-[30rem] rounded-lg border-2 border-green bg-black/40 backdrop-blur-sm p-4 lg:p-6 flex flex-col justify-between  transition-all overflow-hidden">
+    <div className="relative group h-[24rem]  lg:h-[24rem] xl:h-[27rem] rounded-lg border-2 border-green bg-black/40 backdrop-blur-sm p-4 lg:p-6 flex flex-col justify-between  transition-all overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#26DF04,transparent_80%)]  opacity-20 lg:opacity-40 transition-opacity z-0" />
 
       <div className="relative z-10 ">
         <div className="flex items-center gap-2 mb-4">
           <div className="w-3 h-3 bg-green rounded-sm" />
-          <h3 className="text-sm font-bold text-green">
+          <h3 className="custom-text-base font-medium font-family-helvetica-now text-green">
             {service.title}
           </h3>
         </div>
-        <p className="text-sm text-gray-300 max-w-xs  mb-4">
+        <p className="custom-tag-text font-family-helvetica-now text-gray-300 max-w-md  mb-4">
           {service.description}
         </p>
       </div>

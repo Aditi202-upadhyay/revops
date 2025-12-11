@@ -63,7 +63,7 @@ export default function Header() {
  
 
   return (
-    <nav className=" lg:mt-6 absolute top-0 left-0 w-full z-[9999]">
+    <nav className="  absolute lg:top-12 left-0 w-full z-[9999]">
       <div className="bg-linear-to-br from-45% from-green from-green/35 via-transparent to-white mx-auto lg:p-[2px] max-w-[855px]  xl:max-w-[1000px] rounded-full">
         <div className="  p-4 xl:py-4 rounded-full shadow-lg   bg-white border border-white lg:block hidden">
           <div className="flex flex-row gap-6  xl:gap-8  items-center ">
@@ -111,7 +111,7 @@ export default function Header() {
         )}
       </div>
       {closeIcon && (
-        <div className="absolute top-full left-0 w-full">
+        <div className="absolute top-0 left-0 w-full">
           <MobileNavbar closeIcon={closeIcon} />
         </div>
       )}

@@ -2,11 +2,11 @@ import { Heading } from "../component/atom/decorativeHeading";
 
 export default function Solution() {
   return (
-    <section className=" blade-top-padding-lg blade-bottom-padding-lg">
-      <div className="w-full h-screen z-20 relative">
+    <section className=" blade-top-padding-lg ">
+      <div className="w-full h-screen z-20 relative bg-black">
       
               <div className="absolute inset-0 ">
-                    <video src="/assets/home/backgroundVideo.mp4" autoPlay loop muted className="opacity-60 w-full h-full object-cover"/>
+                    <video arial-label="background-video" src="/assets/home/backgroundVideo.mp4" autoPlay loop muted className="opacity-60 w-full h-full object-cover object-bottom"/>
                     <div className="absolute inset-0 bg-gradient-to-l from-[#215817]  to-[#215817] mix-blend-color"></div>
                 </div>
         
@@ -14,8 +14,8 @@ export default function Solution() {
         <div className="absolute inset-0 flex flex-col items-center justify-center z-30">
           <Heading title="Solutions" color="#fff" />
           <h3 className="font-bold text-white custom-text-3xl text-center pt-2 font-family-helvetica-now">
-            100+ <i className="font-normal font-family-playfair">Companies</i> trusted us <br /> to
-            improve their <i className="font-normal font-family-playfair">marketing</i>
+            100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to
+            improve their <i className="font-normal font-playfair">marketing</i>
           </h3>
            <div className="mt-10 flex flex-col md:flex-row gap-4 xl:gap-8 px-4">
     {solutionsData.map((ele, index) => (

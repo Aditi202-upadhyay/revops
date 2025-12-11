@@ -86,7 +86,7 @@ const LinksList = ({ items }: { items: LinkItem[] }) => (
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-black z-30">
+    <footer className="relative w-full overflow-hidden bg-black z-30 ">
       <video
         src="/assets/global/backgroundVideo.mp4"
         autoPlay
@@ -113,10 +113,10 @@ export default function Footer() {
             </div>
 
             <h2 className="custom-text-3xl font-bold font-family-helvetica-now">
-              Join <span className="italic font-normal font-family-playfair">Revops</span> to Build a
+              Join <span className="italic font-normal font-playfair">Revops</span> to Build a
               System
               <br /> That Brings{" "}
-              <span className="italic font-normal font-family-playfair">Real Customers?</span>
+              <span className="italic font-normal font-playfair">Real Customers?</span>
             </h2>
           </div>
 

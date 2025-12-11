@@ -3,15 +3,15 @@ import { Heading } from "../component/atom/decorativeHeading";
 
 export default function Blog() {
   return (
-    <section className="blade-bottom-padding-lg">
+    <section className="blade-top-padding-lg">
       <div className="w-container-sm">
         <div className="flex justify-center items-center flex-col text-center">
           <Heading title="Blogs" color="#000" />
-          <h2 className="custom-text-3xl font-bold text-black py-2">
-            100+ <i className="font-normal">Companies</i> trusted us <br /> to
-            improve their <i className="font-normal">marketing</i>
+          <h2 className="custom-text-3xl font-bold text-black py-2 font-family-helvetica-now">
+            100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to
+            improve their <i className="font-normal font-playfair">marketing</i>
           </h2>
-          <p className="text-black custom-text-md max-w-lg pt-2">
+          <p className="text-black custom-text-md max-w-lg pt-2 font-family-helvetica-now">
             We design and optimize growth systems that drive pipeline, align
             sales and marketing, and make revenue predictable.
           </p>

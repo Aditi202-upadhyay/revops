@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Playfair_Display} from 'next/font/google';
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Footer from "./component/organism/footer";
 import Header from "./component/organism/header";
 
-export const playfair = Playfair_Display({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-playfair',
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
 });
-
 
 export const metadata: Metadata = {
   title: "RevOps – Turn Marketing Into Customers, Not Just Clicks",
   description:
     "RevOps helps you build predictable revenue by aligning sales and marketing, optimizing growth systems, and creating high-intent customer journeys. Turn your marketing into real customers—not just clicks.",
-    icons:{
-       icon: "/whiteFavicon.svg",
+  icons: {
+    icon: "/whiteFavicon.svg",
   },
   keywords: [
     "RevOps",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "max-snippet": -1,
     "max-video-preview": -1,
   },
-   alternates: {
+  alternates: {
     canonical: "https://revops-rho.vercel.app/",
   },
   openGraph: {
@@ -74,11 +74,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable}  antialiased`}
+        className={` ${playfair.variable} antialiased`}
       >
-        <Header/>
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

@@ -5,47 +5,24 @@ import Image from "next/image";
 export default function Banner() {
   return (
     <section>
-      <div className="bg-black relative w-full h-[30rem] md:h-[34rem] xl:h-screen overflow-hidden">
-
-
+      <div className="bg-black relative  h-[30rem] md:h-[34rem] lg:h-[95vh]  lg:rounded-3xl lg:m-4 overflow-hidden">
+        {/* Left Gradient - Green */}
         <div
-          className="absolute top-0 -left-64 rounded-full opacity-20 md:opacity-40  w-[650px] h-[750px]"
+          className="absolute top-0 -left-[200px] md:-left-[300px] w-[600px] h-[600px] md:w-[900px] md:h-[900px] rounded-full opacity-30 blur-[80px] md:blur-[120px]"
           style={{
-            
-            background: `radial-gradient(circle at 90% 20%, #26DF04 0%, #26DF04 40%, transparent 80%)`,
-            filter: "blur(40px)",
+            background: "#26DF04",
           }}
         />
 
-        <div className="absolute top-45 left-0  w-[8rem]  md:w-[12rem]  xl:w-[25rem] h-[15rem] md:block hidden">
-          <Image
-            src="/assets/d2c/star.png"
-            alt="Star"
-            fill
-            className="object-contain mix-blend-overlay smooth-spin"
-          />
-        </div>
-
-
-
-        {/* Top-right circle */}
+        {/* Right Gradient - Green */}
         <div
-          className="absolute top-0 -right-52 rounded-full opacity-20 md:opacity-60 w-[650px] h-[750px]"
+          className="absolute bottom-0 -right-[200px] md:-right-[300px] w-[600px] h-[600px] md:w-[900px] md:h-[900px] rounded-full opacity-30 blur-[80px] md:blur-[120px]"
           style={{
-            background: `radial-gradient(circle at 90% 20%, #26DF04 0%, #26DF04 40%, transparent 80%)`,
-            filter: "blur(40px)",
+            background: "#26DF04",
           }}
         />
 
 
-        <div className="absolute top-45 right-0 w-[8rem]  md:w-[12rem]  xl:w-[25rem] h-[15rem]">
-          <Image
-            src="/assets/d2c/star.png"
-            alt="Star"
-            fill
-            className="object-contain mix-blend-overlay smooth-spin"
-          />
-        </div>
 
 
 
@@ -53,12 +30,12 @@ export default function Banner() {
           <div className=" flex flex-col justify-center items-center">
             <strong className="font-family-helvetica-now font-bold text-white custom-text-3xl animate-fade-up-slower">
               Proven{" "}
-              <i className="italic font-family-playfair font-normal">
+              <i className="italic font-playfair font-normal">
                 Marketing Solutions
                 <br />
               </i>{" "}
               That Drive
-              <i className="italic font-family-playfair font-normal">
+              <i className="italic font-playfair font-normal">
                 Direct Revenue.
               </i>{" "}
             </strong>

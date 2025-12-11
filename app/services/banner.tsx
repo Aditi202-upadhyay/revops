@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Banner() {
   return (
     <section>
-      <div className="bg-black relative w-full h-[30rem] md:h-[34rem] xl:h-screen overflow-hidden">
+      <div className="bg-black relative  h-[30rem] md:h-[34rem] lg:h-[95vh]  lg:rounded-3xl lg:m-4 overflow-hidden">
 
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
@@ -32,7 +32,7 @@ export default function Banner() {
         <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4">
           <strong className="font-family-helvetica-now font-bold text-white custom-text-3xl animate-fade-up-slower">
             From{" "}
-            <i className="italic font-family-playfair font-normal">
+            <i className="italic font-playfair font-normal">
               targeting to conversion <br />
             </i>
             we power your lead engine

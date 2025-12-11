@@ -41,8 +41,8 @@ export const Greenbutton = ({
 
 export function GradientBorderBox({ title }: { title: string }) {
   return (
-    <div style={{background:"linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(38, 223, 4, 0.32) 0%, rgba(38, 223, 4, 0.07) 77.08%, rgba(38, 223, 4, 0.00) 100%);"}} className="rounded-full p-[2px] border border-white ">
-      <button className="rounded-2xl text-base xl:text-lg backdrop-blur-md text-white px-4 md:px-6 py-1 md:py-2 font-family-helvetica-now">
+    <div  className="rounded-full p-[2px] border border-white bg-darkgreen ">
+      <button className="rounded-2xl text-base xl:text-lg  text-white px-8 py-3 font-family-helvetica-now ">
     {title}
       </button>
     </div>

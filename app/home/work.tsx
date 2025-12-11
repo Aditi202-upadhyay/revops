@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Work({data}:{data:parentProp}) {
   return (
-    <section className="">
+    <section className="blade-top-padding-lg">
       <div className="w-container-sm">
         <div className="flex justify-center flex-col items-center">
           <Heading title={data.heading} color="#000" />
@@ -40,6 +40,7 @@ export type parentProp = {
   heading: string;
   subHeading: string;
   details: workProps[];
+  image?:string
 };
 
 
@@ -51,7 +52,7 @@ const CardUI = ({ data }: { data: workProps }) => {
       <div className=" min-h-[18rem] lg:w-1/2 h-auto relative">
         <Image
           src={data.image}
-          alt="placeholder Image"
+          alt={data.heading}
           fill
           className="object-cover  rounded-md"
         />
@@ -61,17 +62,17 @@ const CardUI = ({ data }: { data: workProps }) => {
           <Image
             src={data.logo}
             fill
-            alt="placeholder Image"
-            className="object-contain "
+            alt={data.heading}
+            className="object-contain"
           />
         </div>
-        <h5 className="custom-text-base text-lightDarkGreen font-medium max-w-md font-family-helvetica-now">
+        <h5 className="custom-text-base text-lightDarkGreen font-medium max-w-xl font-family-helvetica-now">
           {data.heading}
         </h5>
 
         <div className="my-2 md:my-4 xl:my-6">
           <span className="text-lightDarkGreen font-bold custom-text-md font-family-helvetica-now">
-            Know more <Greenbutton color="white" />
+            Know more <Greenbutton color="white" style={{background:"linear-gradient(90deg, #2CFE05 -23.73%, #0D5001 186.15%)"}}/>
           </span>
         </div>
 
@@ -82,7 +83,7 @@ const CardUI = ({ data }: { data: workProps }) => {
               <span className="w-2 h-2 bg-green inline-block "></span>
 
               {/* Text */}
-              <p className="text-md text-black whitespace-nowrap font-family-helvetica-now">{ele}</p>
+              <p className="text-lg text-black whitespace-nowrap font-family-helvetica-now">{ele}</p>
             </div>
           ))}
         </div>

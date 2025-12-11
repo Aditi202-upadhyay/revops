@@ -117,7 +117,7 @@ const FieldInput = ({ name, placeholder, errors, touched, as }:FieldProps) => (
       as={as}
       name={name}
       placeholder={placeholder}
-      className={`appearance-none w-full focus:bg-none py-3 px-5 pr-10 bg-white text-lg text-gray font-family-helvetica-now border border-[#DBDBDB] rounded-md 
+      className={`appearance-none w-full focus:bg-none py-3 px-5 pr-10 bg-white text-base text-gray font-family-helvetica-now border border-[#DBDBDB] rounded-md 
         focus:outline-none
         focus:border-green
         focus:shadow-[0_0_0_6px_rgba(255,255,255,0.47),5px_7px_4px_-5px_rgba(128,211,246,0.42),-1px_5px_4px_-2px_#D8C778,-5px_-5px_3.5px_-3px_rgba(242,136,156,0.27)]

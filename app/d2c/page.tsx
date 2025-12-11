@@ -62,8 +62,8 @@ const workData: parentProp = {
     "Level up your marketing,<br /> improve <i class='font-normal text-black'> marketing ROI</i>",
   details: [
     {
-      image: "/assets/home/placeholder.png",
-      logo: "/assets/home/doholer.png",
+      image: "/assets/blogs/blogs1.png",
+      logo: "/assets/home/logo.png",
       heading:
         "Dohler raised 2.71 million and website performance score improved from 52 to 84 after migrating to webflow from Bubble score improved.",
       link: "#",
@@ -76,8 +76,8 @@ const workData: parentProp = {
       ],
     },
     {
-      image: "/assets/home/placeholder.png",
-      logo: "/assets/home/doholer.png",
+      image: "/assets/blogs/blogs1.png",
+      logo: "/assets/home/logo.png  ",
       heading:
         "Dohler raised 2.71 million and website performance score improved from 52 to 84 after migrating to webflow from Bubble score improved.",
       link: "#",
@@ -90,8 +90,8 @@ const workData: parentProp = {
       ],
     },
     {
-      image: "/assets/home/placeholder.png",
-      logo: "/assets/home/doholer.png",
+      image: "/assets/blogs/blogs1.png",
+      logo: "/assets/home/logo.png  ",
       heading:
         "Dohler raised 2.71 million and website performance score improved from 52 to 84 after migrating to webflow from Bubble score improved.",
       link: "#",

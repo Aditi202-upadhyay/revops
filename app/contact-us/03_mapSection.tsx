@@ -127,7 +127,7 @@ const Details = ({
     <div className="flex flex-row items-start gap-4 my-4 md:my-6">
       {icon}
       <div>
-        <h5 className="text-white custom-text-md font-family-helvetica-now">{title}</h5>
+        <h5 className="text-white custom-text-md font-medium font-family-helvetica-now">{title}</h5>
         <h6 className="text-white custom-text-md max-w-sm font-family-helvetica-now">{details}</h6>
       </div>
     </div>

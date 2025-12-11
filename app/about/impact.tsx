@@ -10,9 +10,9 @@ export default function AboutImpact() {
           <div>
             <Heading title="About Revops" color="#014715" />
             <h2 className="custom-text-3xl font-bold text-black py-2 font-family-helvetica-now">
-              100+ <i className="font-normal font-family-playfair">Companies</i>{" "}
+              100+ <i className="font-normal font-playfair">Companies</i>{" "}
               trusted us <br /> to improve their{" "}
-              <i className="font-normal font-family-playfair">marketing</i>
+              <i className="font-normal font-playfair">marketing</i>
             </h2>
             <p className="text-gray font-family-helvetica-now custom-text-md max-w-2xl py-1">
               At RevOps Media, we drive results that matter. As a performance

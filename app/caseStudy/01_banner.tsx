@@ -9,7 +9,7 @@ export default function Banner(){
                <div className=" flex flex-col justify-center items-center">
                 <Heading title="Case studies" color="#26DF04"/>
                
-                     <i className="custom-text-3xl py-4 text-white italic text-center font-family-playfair"><strong className="not-italic font-family-helvetica-now">Strategy and creation that <br/> drive</strong> tangible results</i>
+                     <i className="custom-text-3xl py-4 text-white italic text-center font-playfair"><strong className="not-italic font-family-helvetica-now">Strategy and creation that <br/> drive</strong> tangible results</i>
                  </div>
              </div>
             </div> 

@@ -26,7 +26,7 @@ export default function Home(){
 
 
 const seviceData: ParentsCom = {
-    heading:"Level up your marketing,<br class='block'/> improve <i class='font-normal font-family-playfair'>marketing ROI</i>",
+    heading:"Level up your marketing,<br class='block'/> improve <i class='font-normal font-playfair'>marketing ROI</i>",
     description:"We design and optimize growth systems that drive pipeline, align sales and marketing, and make revenue predictable. sales and marketing, and make revenue predictable.",
     data:[
    {
@@ -35,6 +35,7 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline",
     link: "#",
+    image:"/assets/blogs/blog1.png"
   },
   {
     id: "02",
@@ -42,6 +43,7 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline ",
     link: "#",
+    image:"/assets/blogs/blog1.png"
   },
   {
     id: "03",
@@ -49,6 +51,7 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline ",
     link: "#",
+    image:"/assets/blogs/blog1.png"
   },
   {
     id: "04",
@@ -56,6 +59,7 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline  ",
     link: "#",
+    image:"/assets/blogs/blog1.png"
   },
    {
     id: "05",
@@ -63,6 +67,7 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline ",
     link: "#",
+    image:"/assets/blogs/blog1.png"
   },
    {
     id: "06",
@@ -70,6 +75,7 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline ",
     link: "#",
+    image:"/assets/blogs/blog1.png"
   },
   {
     id: "07",
@@ -77,6 +83,7 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline ",
     link: "#",
+    image:"/assets/blogs/blog1.png"
   },
    {
     id: "08",
@@ -84,6 +91,7 @@ const seviceData: ParentsCom = {
     description:
       "Improved in ROI and more inbound sales calls, more qualified pipeline  ",
     link: "#",
+    image:"/assets/blogs/blog1.png"
   },
   
     ]
@@ -93,7 +101,7 @@ const workData:parentProp = {
   
     heading: "Our Work",
     subHeading:
-      "Level up your marketing,<br /> improve <i class='font-normal font-family-playfair text-black'> marketing ROI</i>",
+      "Level up your marketing,<br /> improve <i class='font-normal font-playfair text-black'> marketing ROI</i>",
     details: [
       {
         image: "/assets/blogs/blogs1.png",
