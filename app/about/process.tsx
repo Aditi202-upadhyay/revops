@@ -65,49 +65,20 @@ export default function ProcessSection() {
     const gap = 40 // Matches mb-10 (40px)
     const totalItemHeight = itemHeight + gap
 
-    // Initial state
-    // Center the first item. 
-    // The container is top-aligned to 50% of parent.
-    // We want the center of the first item to be at the center of the parent.
-    // Since container is translateY(-50%), the "center" of the container is at parent center.
-    // But the container content flows down.
-    // So we need to offset the container so the first item is centered.
-    // Actually, let's simplify:
-    // Parent is flex center. Container is just a wrapper.
-    // We will animate the container's Y position.
 
-    // Reset everything first
     gsap.set(cards, {
       opacity: 0.2,
       filter: "blur(4px)",
       scale: 0.9,
     })
 
-    // First item active
     gsap.set(cards[0], {
       opacity: 1,
       filter: "blur(0px)",
       scale: 1,
     })
 
-    // Position container so first item is in view
-    // If we assume items are stacked, we just need to move the container up by (index * totalItemHeight)
-    // Let's set initial Y to 0 (assuming CSS handles the centering of the first item roughly)
-    // Actually, to center the first item, we might need to adjust.
-    // Let's rely on the layout: Parent is centered. Container is centered.
-    // If container is centered, the MIDDLE of the list is at the center.
-    // We want the FIRST item at the center.
-    // So we need to shift the container DOWN by (totalHeight / 2) - (itemHeight / 2).
-    // Or simpler: Use a timeline to animate from "Item 0 centered" to "Item N centered".
 
-    // Let's calculate the movement.
-    // We want to move the container UP by `totalItemHeight` for each step.
-
-    // Align first item to center:
-    // We can use a functional value or just set it.
-    // For now, let's assume the CSS `top-1/2 -translate-y-1/2` centers the *whole list*.
-    // We want to start with the *first item* centered.
-    // So we need to shift the list DOWN.
     const listHeight = cardsContainerRef.current.offsetHeight
     const startY = (listHeight / 2) - (itemHeight / 2)
 
@@ -130,9 +101,9 @@ export default function ProcessSection() {
 
       const nextCard = cards[i + 1]
 
-      // Step: Move from item i to item i+1
+
       timeline
-        // Move container up
+
         .to(cardsContainerRef.current, {
           y: startY - ((i + 1) * totalItemHeight),
           duration: 1,
@@ -163,31 +134,41 @@ export default function ProcessSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen  blade-bottom-padding-sm overflow-hidden">
-      <div ref={containerRef} className="w-full h-screen bg-[#E8E8E7] blade-top-padding-sm flex items-center justify-center relative lg:block hidden">
+    <section className="relative min-h-screen  blade-bottom-padding-lg overflow-hidden">
+      <div ref={containerRef} className="w-full h-screen bg-black blade-top-padding-sm flex items-center justify-center relative lg:block hidden">
 
 
+        <div
+          className="absolute bottom-0 -left-[200px] md:-left-[100px] w-[600px] h-[600px] md:w-[600px] md:h-[600px] rounded-full opacity-40 blur-[80px] md:blur-[120px]"
+          style={{
+            background: "#26DF04",
+          }}
+        />
 
-        <div className="w-container-xl px-4 z-10">
+        {/* Right Gradient - Green */}
+        <div
+          className="absolute bottom-0 -right-[200px] md:-right-[300px] w-[600px] h-[600px] md:w-[700px] md:h-[700px] rounded-full opacity-40 blur-[80px] md:blur-[120px]"
+          style={{
+            background: "#26DF04",
+          }}
+        />
+
+
+        <div className="w-container-xl px-4 z-10  ">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 h-full">
 
             <div className="flex flex-col justify-center h-full relative">
               <div className="">
-                <Heading title="Our Process" color="#014715" />
-                <h2 className="custom-text-3xl font-bold text-black py-2">
+                <Heading title="Our Process" color="#ffff" />
+                <h2 className="custom-text-3xl font-bold text-white py-2">
                   100+ <i className="font-normal font-playfair">Companies</i> trusted us  to
                   improve their <i className="font-normal">marketing</i>
                 </h2>
               </div>
 
-              {/* Decorative geometric pattern - remains fixed */}
-              <div className=" mt-8 w-full  2xl:w-[34rem] h-[22rem] relative bg-lightDarkGreen xl:h-[25rem] rounded-md flex items-center justify-center">
-                <div
-                  className="absolute left-0  w-[400px] h-[400px] rounded-full opacity-30 blur-[120px] "
-                  style={{
-                    background: "#26DF04",
-                  }}
-                />
+
+              <div className=" mt-8 w-full  2xl:w-[34rem] h-[22rem] relative bg-darkgreen xl:h-[25rem] rounded-md flex items-center justify-center">
+
                 <svg width="318" height="300" viewBox="0 0 318 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="97.2366" cy="97.2366" r="95.636" stroke="white" strokeWidth="3.20125" />
                   <circle cx="97.2366" cy="202.692" r="95.636" stroke="white" strokeWidth="3.20125" />
@@ -217,10 +198,10 @@ export default function ProcessSection() {
 
                     >
                       <div className="flex items-baseline gap-4">
-                        <span className="text-[#0D5001] custom-text-xl font-bold font-family-helvetica-now">{item.number}</span>
-                        <h3 className=" font-bold custom-text-xl text-[#0D5001] font-family-helvetica-now">{item.title}</h3>
+                        <span className="text-white custom-text-xl font-bold font-family-helvetica-now">{item.number}</span>
+                        <h3 className=" font-bold custom-text-xl text-white font-family-helvetica-now">{item.title}</h3>
                       </div>
-                      <p className="text-black/80 custom-text-md max-w-md font-family-helvetica-now">{item.description}</p>
+                      <p className="text-white custom-text-md max-w-md font-family-helvetica-now">{item.description}</p>
                     </div>
                   </div>
                 ))}

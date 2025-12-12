@@ -33,25 +33,25 @@ const navDropDown: NavDropDownProps[] = [
   {
     category: "Solutions",
     items: [
-      { label: "For B2B", href: "#" },
-      { label: "For B2C", href: "#" },
-      { label: "For D2C", href: "#" },
+      { label: "For B2B", href: "/home#b2b" },
+      { label: "For B2C", href: "/home#b2c" },
+      { label: "For D2C", href: "/home#d2c" },
     ],
   },
   {
     category: "Services",
     items: [
-      { label: "Performance Marketing", href: "#" },
-      { label: "Lead Generation", href: "#" },
-      { label: "Account-Based Marketing", href: "#" },
-      { label: "Search Engine Optimization", href: "#" },
-      { label: "Generative Engine Optimization", href: "#" },
-      { label: "Conversion Rate Optimization", href: "#" },
-      { label: "Email Marketing", href: "#" },
-      { label: "WhatsApp Marketing", href: "#" },
+      { label: "Performance Marketing", href: "/home#performance-marketing" },
+      { label: "Lead Generation", href: "/home#lead-generation" },
+      { label: "Account-Based Marketing", href: "/home#account-based-marketing" },
+      { label: "Search Engine Optimization", href: "/home#search-engine-optimization" },
+      { label: "Generative Engine Optimization", href: "/home#generative-engine-optimization" },
+      { label: "Conversion Rate Optimization", href: "/home#conversion-rate-optimization" },
+      { label: "Email Marketing", href: "/home#email-marketing" },
+      { label: "WhatsApp Marketing", href: "/home#whatsapp-marketing" },
     ],
   }
-  
+
 ];
 
 export default function Header() {
@@ -60,7 +60,7 @@ export default function Header() {
     setCloseIcon((prev) => !prev);
   };
 
- 
+
 
   return (
     <nav className="  absolute lg:top-12 left-0 w-full z-[9999]">
@@ -91,14 +91,14 @@ export default function Header() {
       <div className="lg:hidden  py-4 bg-lightDarkGreen/95 block flex justify-between items-center  relative px-2">
         <div className="w-36 h-6  relative">
           <Link href="/" rel="noopener norefferer">
-         
-          <Image
-            src="/assets/global/whiteLogo.svg"
-            fill
-            alt="Revops logo"
-            className="object-contain"
-          />
-           </Link>
+
+            <Image
+              src="/assets/global/whiteLogo.svg"
+              fill
+              alt="Revops logo"
+              className="object-contain"
+            />
+          </Link>
         </div>
         {!closeIcon ? (
           <button onClick={handleSwitch} aria-label="open mobile navigation">
@@ -135,8 +135,8 @@ const NavDropDown = () => {
   return (
     <div className="flex  gap-8 xl:gap-14 animate-nav-link ">
       {navDropDown.map((dropdown, idx) => (
-        <DropdownMenu key={idx}>
-          <DropdownMenuTrigger className="group !text-base xl:!text-lg !text-black !font-family-helvetica-now hover:!text-green outline-none cursor-pointer">
+        <DropdownMenu key={idx} modal={false}>
+          <DropdownMenuTrigger className="group  !text-base xl:!text-lg !text-black !font-family-helvetica-now hover:!text-green outline-none cursor-pointer">
             <div className="flex items-center gap-1">
               {dropdown.category}
               <MdKeyboardArrowDown className="text-black text-xl transition-transform duration-300 group-data-[state=open]:rotate-180" />
@@ -166,7 +166,7 @@ const TalkToUs = () => {
         <h5 className="inline-block custom-text-md font-bold font-family-helvetica-now text-lightDarkGreen hover:text-green">
           Talk to us
         </h5>{" "}
-        <Greenbutton color="#ffff" style={{background:"linear-gradient(90deg, #2CFE05 -23.73%, #000 186.15%)"}}/>
+        <Greenbutton color="#ffff" style={{ background: "linear-gradient(90deg, #2CFE05 -23.73%, #000 186.15%)" }} />
       </Link>
     </div>
   );
@@ -186,20 +186,20 @@ const MobileNavbar = ({ closeIcon }: { closeIcon: boolean }) => {
   }, [closeIcon]);
 
   useEffect(() => {
-  if (closeIcon) {
-    const ctx = gsap.context(() => {
-      gsap.from(".animate-link", {
-        x:100,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.09,
+    if (closeIcon) {
+      const ctx = gsap.context(() => {
+        gsap.from(".animate-link", {
+          x: 100,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.09,
+        });
       });
-    });
 
-    return () => ctx.revert();
-  }
-}, [closeIcon]);
+      return () => ctx.revert();
+    }
+  }, [closeIcon]);
 
 
   return (
@@ -210,7 +210,7 @@ const MobileNavbar = ({ closeIcon }: { closeIcon: boolean }) => {
         <p className=" text-md py-1 text-gray font-family-helvetica-now animate-link">Blogs</p>
       </div>
       <MobileNavDropDown />
-     
+
     </nav>
   );
 };

@@ -45,7 +45,7 @@ export default function FAQ() {
     setOpen(open===index?null:index);
   };
   return (
-    <section className="blade-bottom-padding-lg blade-top-padding-lg">
+    <section className="blade-bottom-padding-lg ">
       <div className="w-container-xs">
         <div className="flex justify-center items-center flex-col text-center">
           <Heading title="Frequently asked questions" color="#014715" />

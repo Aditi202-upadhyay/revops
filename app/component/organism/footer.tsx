@@ -22,22 +22,22 @@ const footerData: FooterData = {
     {
       category: "Services",
       items: [
-        { label: "Performance Marketing", href: "#" },
-        { label: "Lead Generation", href: "#" },
-        { label: "Account-Based Marketing", href: "#" },
-        { label: "Search Engine Optimization", href: "#" },
-        { label: "Generative Engine Optimization", href: "#" },
-        { label: "Conversion Rate Optimization", href: "#" },
-        { label: "Email Marketing", href: "#" },
-        { label: "WhatsApp Marketing", href: "#" },
+        { label: "Performance Marketing", href: "/home#performance-marketing" },
+      { label: "Lead Generation", href: "/home#lead-generation" },
+      { label: "Account-Based Marketing", href: "/home#account-based-marketing" },
+      { label: "Search Engine Optimization", href: "/home#search-engine-optimization" },
+      { label: "Generative Engine Optimization", href: "/home#generative-engine-optimization" },
+      { label: "Conversion Rate Optimization", href: "/home#conversion-rate-optimization" },
+      { label: "Email Marketing", href: "/home#email-marketing" },
+      { label: "WhatsApp Marketing", href: "/home#whatsapp-marketing" },
       ],
     },
     {
       category: "Solutions",
       items: [
-        { label: "For D2C", href: "/d2c" },
-        { label: "For B2C", href: "#" },
-        { label: "For B2B", href: "#" },
+         { label: "For B2B", href: "/home#b2b" },
+      { label: "For B2C", href: "/home#b2c" },
+      { label: "For D2C", href: "/home#d2c" },
       ],
     },
     {
@@ -86,7 +86,7 @@ const LinksList = ({ items }: { items: LinkItem[] }) => (
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-black z-30 ">
+    <footer className="relative w-full overflow-hidden bg-black z-30">
       <video
         src="/assets/global/backgroundVideo.mp4"
         autoPlay

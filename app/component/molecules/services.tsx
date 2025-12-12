@@ -7,6 +7,7 @@ export type ServiceProps = {
   description: string;
   link: string;
   image?: string;
+  referId?: string;
 };
 
 export type ParentsCom = {
@@ -22,7 +23,7 @@ export default function GlobalService({
   serviceData: ParentsCom;
 }) {
   return (
-    <section className="blade-top-padding-lg">
+    <section className="blade-bottom-padding-lg">
       <div className="w-container-xl">
         <Heading title="Our Services" color="#014715" />
         <div className="lg:flex justify-between pt-4 lg:pt-6">
@@ -54,7 +55,7 @@ const Services = ({ details }: { details: ServiceProps }) => {
     <div>
       <div className="relative group py-4 md:my-0  flex flex-col gap-2 md:flex-row md:justify-between md:items-center border-b-2 border-gray/40 w-full">
        
-        <div className="md:my-4 ">
+        <div id={details.referId} className="md:my-4 ">
           <div className="flex gap-2  items-center">
             <div className="custom-text-base text-gray">{details.id}.</div>
             <h3 className="custom-text-xl font-family-helvetica-now font-medium text-transparent bg-clip-text bg-linear-to-t from-darkgreen from-35%  to-green">

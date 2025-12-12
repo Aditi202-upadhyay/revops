@@ -3,7 +3,7 @@ import { Heading } from "../component/atom/decorativeHeading";
 
 export default function Blog() {
   return (
-    <section className="blade-top-padding-lg">
+    <section className="blade-bottom-padding-lg ">
       <div className="w-container-sm">
         <div className="flex justify-center items-center flex-col text-center">
           <Heading title="Blogs" color="#000" />

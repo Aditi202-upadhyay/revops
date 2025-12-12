@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AboutImpact() {
   return (
-    <section className="blade-top-padding-lg">
+    <section className="blade-bottom-padding-lg">
       <div className="w-container-xl relative">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end my-4">
           <div>

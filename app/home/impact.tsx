@@ -3,7 +3,7 @@ import { Heading } from "../component/atom/decorativeHeading";
 
 export default function Impact() {
   return (
-    <section className="blade-top-padding-sm">
+    <section className="blade-bottom-padding-sm">
       <div className="w-container-xl">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end my-4">
           <div>

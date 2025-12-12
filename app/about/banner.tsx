@@ -1,24 +1,27 @@
 import { Heading } from "../component/atom/decorativeHeading";
-import ClientSwiper from "../component/molecules/clientSwiper";
-import Image from "next/image";
+
 
 export default function Banner() {
   return (
-    <section>
-      <div className="bg-black relative w-full h-[30rem] md:h-[34rem] xl:h-screen overflow-hidden">
+    <section className="blade-bottom-margin-lg">
+      <div className="bg-black relative  h-[30rem] md:h-[34rem] lg:h-[95vh]  lg:rounded-3xl lg:m-4 overflow-hidden">
 
+  <div
+          className="absolute top-0 -left-[200px] md:-left-[300px] w-[600px] h-[600px] md:w-[900px] md:h-[900px] rounded-full opacity-40 blur-[80px] md:blur-[120px]"
+          style={{
+            background: "#26DF04",
+          }}
+        />
+
+        {/* Right Gradient - Green */}
+        <div
+          className="absolute bottom-0 -right-[200px] md:-right-[300px] w-[600px] h-[600px] md:w-[900px] md:h-[900px] rounded-full opacity-40 blur-[80px] md:blur-[120px]"
+          style={{
+            background: "#26DF04",
+          }}
+        />
 
        
-
-
-
-        {/* Top-right circle */}
-       
-
-
-       
-
-
         <div className="h-full flex flex-col justify-center items-center text-center px-4 z-40">
           <div className=" flex flex-col justify-center items-center">
               <Heading title="About" color="#26DF04"/>

@@ -21,7 +21,7 @@ export default function GlobalTestimonial() {
   };
 
   return (
-    <section className="blade-top-padding-lg">
+    <section className="blade-bottom-padding-lg">
       <div
         style={{
           backgroundImage: "url('/assets/home/textimonialBackground.png')",

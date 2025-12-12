@@ -1,10 +1,9 @@
-import { Heading } from "../component/atom/decorativeHeading";
-import ClientSwiper from "../component/molecules/clientSwiper";
+
 import Image from "next/image";
 
 export default function Banner() {
   return (
-    <section>
+    <section className="blade-bottom-margin-lg">
       <div className="bg-black relative  h-[30rem] md:h-[34rem] lg:h-[95vh]  lg:rounded-3xl lg:m-4 overflow-hidden">
 
         {/* Video Background */}
