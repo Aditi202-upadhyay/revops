@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://revops-rho.vercel.app/sitemap.xml

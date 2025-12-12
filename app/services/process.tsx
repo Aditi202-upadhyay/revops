@@ -1,0 +1,346 @@
+"use client"
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Heading } from "../component/atom/decorativeHeading"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from "react";
+import type { Swiper as SwiperType } from "swiper";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+
+gsap.registerPlugin(ScrollTrigger)
+
+interface processProps {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const items = [
+  {
+    number: "01",
+    title: "Emotion-Aware Styling",
+    description:
+      "Her message design adapts to tone. Clear, excited, empathetic — the interface reflects the mood, not just the message.",
+  },
+  {
+    number: "02",
+    title: "Smart Tone Detection",
+    description:
+      "AI analyzes the sentiment and adjusts visual elements. Every interaction feels personalized and intentional.",
+  },
+  {
+    number: "03",
+    title: "Adaptive Responses",
+    description:
+      "Responses change based on context. The system learns and evolves with each interaction for better results.",
+  },
+  {
+    number: "04",
+    title: "Real-Time Feedback",
+    description: "Instant visual cues guide users through their journey. Clarity and confidence in every step forward.",
+  },
+]
+
+export default function ProcessSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const cardsContainerRef = useRef<HTMLDivElement>(null)
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+
+  const handleNavigation = (index: number) => {
+    setActiveIndex(index);
+    swiperInstance?.slideTo(index);
+  };
+  useEffect(() => {
+    if (!containerRef.current || !cardsContainerRef.current) return
+
+    const cards = cardRefs.current.filter(Boolean)
+    const totalItems = cards.length
+    const itemHeight = cards[0]?.offsetHeight || 0
+    const gap = 40 // Matches mb-10 (40px)
+    const totalItemHeight = itemHeight + gap
+
+    // Initial state
+    // Center the first item. 
+    // The container is top-aligned to 50% of parent.
+    // We want the center of the first item to be at the center of the parent.
+    // Since container is translateY(-50%), the "center" of the container is at parent center.
+    // But the container content flows down.
+    // So we need to offset the container so the first item is centered.
+    // Actually, let's simplify:
+    // Parent is flex center. Container is just a wrapper.
+    // We will animate the container's Y position.
+
+    // Reset everything first
+    gsap.set(cards, {
+      opacity: 0.2,
+      filter: "blur(4px)",
+      scale: 0.9,
+    })
+
+    // First item active
+    gsap.set(cards[0], {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+    })
+
+    // Position container so first item is in view
+    // If we assume items are stacked, we just need to move the container up by (index * totalItemHeight)
+    // Let's set initial Y to 0 (assuming CSS handles the centering of the first item roughly)
+    // Actually, to center the first item, we might need to adjust.
+    // Let's rely on the layout: Parent is centered. Container is centered.
+    // If container is centered, the MIDDLE of the list is at the center.
+    // We want the FIRST item at the center.
+    // So we need to shift the container DOWN by (totalHeight / 2) - (itemHeight / 2).
+    // Or simpler: Use a timeline to animate from "Item 0 centered" to "Item N centered".
+
+    // Let's calculate the movement.
+    // We want to move the container UP by `totalItemHeight` for each step.
+
+    // Align first item to center:
+    // We can use a functional value or just set it.
+    // For now, let's assume the CSS `top-1/2 -translate-y-1/2` centers the *whole list*.
+    // We want to start with the *first item* centered.
+    // So we need to shift the list DOWN.
+    const listHeight = cardsContainerRef.current.offsetHeight
+    const startY = (listHeight / 2) - (itemHeight / 2)
+
+    gsap.set(cardsContainerRef.current, {
+      y: startY
+    })
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: `+=${totalItems * 600}`, // Scroll distance
+        scrub: 1,
+        pin: true,
+      },
+    })
+
+    cards.forEach((card, i) => {
+      if (i === cards.length - 1) return
+
+      const nextCard = cards[i + 1]
+
+      // Step: Move from item i to item i+1
+      timeline
+        // Move container up
+        .to(cardsContainerRef.current, {
+          y: startY - ((i + 1) * totalItemHeight),
+          duration: 1,
+          ease: "power2.inOut",
+        })
+        // Fade out current
+        .to(card, {
+          opacity: 0.2,
+          filter: "blur(4px)",
+          scale: 0.9,
+          duration: 1,
+          ease: "power2.inOut",
+        }, "<")
+        // Fade in next
+        .to(nextCard, {
+          opacity: 1,
+          filter: "blur(0px)",
+          scale: 1,
+          duration: 1,
+          ease: "power2.inOut",
+        }, "<")
+    })
+
+    return () => {
+      timeline.kill()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [])
+
+  return (
+    <section className="relative min-h-screen bg-[#E8E8E7] blade-top-padding-lg overflow-hidden">
+      <div ref={containerRef} className="w-full h-screen flex items-center justify-center relative lg:block hidden">
+
+
+
+        <div className="w-container-xl px-4 z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 h-full">
+
+            <div className="flex flex-col justify-center h-full relative">
+              <div className="">
+                <Heading title="Our Process" color="#014715" />
+                <h2 className="custom-text-3xl font-bold text-black py-2">
+                  100+ <i className="font-normal font-playfair">Companies</i> trusted us  to
+                  improve their <i className="font-normal">marketing</i>
+                </h2>
+              </div>
+
+              {/* Decorative geometric pattern - remains fixed */}
+              <div className=" mt-8 w-full  2xl:w-[34rem] h-[22rem] relative bg-lightDarkGreen xl:h-[25rem] rounded-md flex items-center justify-center">
+                <div
+                  className="absolute left-0  w-[400px] h-[400px] rounded-full opacity-30 blur-[120px] "
+                  style={{
+                    background: "#26DF04",
+                  }}
+                />
+                <svg width="318" height="300" viewBox="0 0 318 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="97.2366" cy="97.2366" r="95.636" stroke="white" stroke-width="3.20125" />
+                  <circle cx="97.2366" cy="202.692" r="95.636" stroke="white" stroke-width="3.20125" />
+                  <circle cx="220.652" cy="97.2366" r="95.636" stroke="white" stroke-width="3.20125" />
+                  <circle cx="220.652" cy="202.692" r="95.636" stroke="white" stroke-width="3.20125" />
+                </svg>
+              </div>
+            </div>
+
+            {/* RIGHT SECTION - Animated cards */}
+            <div className="relative h-[600px] w-full flex items-center justify-center overflow-hidden">
+              <div
+                ref={cardsContainerRef}
+                className="absolute top-1/2 left-0 w-full flex flex-col items-center"
+                style={{ transform: "translateY(-50%)" }}
+              >
+                {items.map((item, index) => (
+                  <div
+                    key={index}
+                    ref={(el) => {
+                      cardRefs.current[index] = el
+                    }}
+                    className="relative w-full mb-10 last:mb-0 flex justify-center"
+                  >
+                    <div
+                      className="flex flex-col gap-2  rounded-[12px] transition-all duration-500 w-full max-w-lg"
+
+                    >
+                      <div className="flex items-baseline gap-4">
+                        <span className="text-[#0D5001] custom-text-xl font-bold font-family-helvetica-now">{item.number}</span>
+                        <h3 className=" font-bold custom-text-xl text-[#0D5001] font-family-helvetica-now">{item.title}</h3>
+                      </div>
+                      <p className="text-black/80 custom-text-md max-w-md font-family-helvetica-now">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:hidden block w-container-xl">
+        <div className=" flex justify-center items-center flex-col text-center">
+          <Heading title="Our Process" color="#014715" />
+          <h2 className="custom-text-3xl font-bold text-black py-2">
+            100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to
+            improve their <i className="font-normal">marketing</i>
+          </h2>
+        </div>
+        <div className="relative">
+          <Swiper
+            modules={[Navigation]}
+            navigation={false}
+            onSwiper={(swiper) => setSwiperInstance(swiper)}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            grabCursor
+            slidesPerView="auto"
+            spaceBetween={20}
+            centerInsufficientSlides={true}
+            breakpoints={{
+              456: {
+                slidesPerView: "auto",
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: "auto",
+                spaceBetween: 20,
+              },
+              960: {
+                slidesPerView: "auto",
+                spaceBetween: 20,
+              },
+              1020: {
+                slidesPerView: "auto",
+                spaceBetween: 20,
+              },
+              1280: {
+                slidesPerView: "auto",
+                spaceBetween: 20,
+              },
+              1400: {
+                slidesPerView: "auto",
+                spaceBetween: 20,
+              },
+            }}
+          >
+            {items.map((obj, index: number) => (
+              <SwiperSlide key={index} className="!w-auto ">
+                <Card data={obj} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <SwiperButtons swiper={swiperInstance} />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+const Card = ({ data }: { data: processProps }) => {
+  return (
+    <div className="bg-lightDarkGreen w-full max-w-sm  mt-8 rounded-2xl relative overflow-hidden p-4 min-h-[21rem] flex flex-col">
+      {/* Background Pattern */}
+      
+      <div className="relative z-10 flex flex-col h-full">
+        <div className="flex  gap-2">
+
+          <h3 className="font-bold custom-text-lg text-white font-family-helvetica-now ">
+            {data.title}
+          </h3>
+        </div>
+
+        <p className="text-white/90 custom-text-sm font-family-helvetica-now mt-4">
+          {data.description}
+        </p>
+      </div>
+      <div>
+        <svg width="318" height="300" viewBox="0 0 318 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[150px] h-[150px] mx-auto mt-6">
+          <circle cx="97.2366" cy="97.2366" r="95.636" stroke="white" strokeWidth="3.20125" />
+          <circle cx="97.2366" cy="202.692" r="95.636" stroke="white" strokeWidth="3.20125" />
+          <circle cx="220.652" cy="97.2366" r="95.636" stroke="white" strokeWidth="3.20125" />
+          <circle cx="220.652" cy="202.692" r="95.636" stroke="white" strokeWidth="3.20125" />
+        </svg>
+      </div>
+    </div>
+  )
+}
+
+
+export const SwiperButtons = ({ swiper }: { swiper: SwiperType | null }) => {
+  return (
+    <div className="absolute -bottom-14 right-0 justify-end w-full flex gap-2 px-6   z-20 pointer-events-none">
+      <button
+        style={{
+          background: "linear-gradient(90deg, #2CFE05 -23.73%, #FFF 186.15%)",
+        }}
+        onClick={() => swiper?.slidePrev()}
+        className=" text-white cursor-pointer px-4 md:px-6 py-2  rounded-full pointer-events-auto"
+      >
+        <FaArrowLeftLong />
+      </button>
+
+      <button
+        style={{
+          background: "linear-gradient(90deg, #2CFE05 -23.73%, #FFF 186.15%)",
+        }}
+        onClick={() => swiper?.slideNext()}
+        className="text-white cursor-pointer px-4 md:px-6 py-2  rounded-full pointer-events-auto"
+      >
+        <FaArrowRightLong />
+      </button>
+    </div>
+  );
+};

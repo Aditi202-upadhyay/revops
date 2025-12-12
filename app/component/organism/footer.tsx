@@ -43,13 +43,14 @@ const footerData: FooterData = {
     {
       category: "Company",
       items: [
-        { label: "About", href: "#" },
-        { label: "Contact", href: "#" },
+        { label: "About", href: "/about" },
+        { label: "Contact", href: "/contact-us" },
       ],
     },
     {
       category: "Resources",
-      items: [{ label: "Blogs", href: "#" }],
+      items: [{ label: "Blogs", href: "/blogs" },{ label: "CaseStudy", href: "/caseStudy" }],
+  
     },
   ],
 };
@@ -63,19 +64,20 @@ export const SectionHeader = ({
 }) => (
   <div className="flex items-center gap-2">
     <div className="w-2 h-2 bg-green" />
-    <h4 className={`custom-text-md font-bold text-${color}`}>{title}</h4>
+    <h4 className={`custom-text-md font-bold font-family-helvetica-now text-${color}`}>{title}</h4>
   </div>
 );
 
 const LinksList = ({ items }: { items: LinkItem[] }) => (
   <ul className="space-y-2 mt-3">
     {items.map((link, idx) => (
+      <Link key={idx} href={link.href} rel="noopener noreferrer">
       <li
-        key={idx}
-        className="custom-tag-text cursor-pointer ps-4  text-white hover:text-white/80 transition-colors"
+        className="custom-tag-text cursor-pointer ps-4  text-white hover:text-white/80 font-family-helvetica-now transition-colors"
       >
         {link.label}
       </li>
+      </Link>
     ))}
   </ul>
 );
@@ -84,39 +86,46 @@ const LinksList = ({ items }: { items: LinkItem[] }) => (
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden">
+    <footer className="relative w-full overflow-hidden bg-black z-30 ">
       <video
         src="/assets/global/backgroundVideo.mp4"
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-60"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1E5114] to-[#072b01dd] z-10" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0   z-10 bg-linear-to-t from-black to-[#215817]  mix-blend-hard-light"></div>
+    
+      
+      
+      {/* Blur Overlay */}
+      <div className="absolute inset-0 backdrop-blur-[2px] z-10"></div>
 
-      <div className="relative z-20 mx-auto max-w-[85rem] px-6 py-8 md:py-14 text-white">
+      <div className="relative z-20 mx-auto max-w-[85rem] px-6 py-8 xl:py-18 text-white ">
         {/* Header Section with CTA */}
-        <div className="mb-4 md:mb-16 text-center space-y-8">
+        <div className="md:mb-8 text-center space-y-4 lg:space-y-8">
           <div className="space-y-3 md:space-y-6">
             <div className="flex items-center justify-center gap-4">
               <Heading title="Contact-us" />
             </div>
 
-            <h2 className="custom-text-3xl font-bold ">
-              Join <span className="italic font-normal">Revops</span> to Build a
+            <h2 className="custom-text-3xl font-bold font-family-helvetica-now">
+              Join <span className="italic font-normal font-playfair">Revops</span> to Build a
               System
               <br /> That Brings{" "}
-              <span className="italic font-normal">Real Customers?</span>
+              <span className="italic font-normal font-playfair">Real Customers?</span>
             </h2>
           </div>
 
           <div className="flex items-center justify-center gap-3">
-            <a href="#" className=" font-semibold custom-text-base ">
+            <Link href="/contact-us" rel="noopener noreferrer" className=" font-extrabold custom-text-base font-family-helvetica-now">
               Connect with us
-            </a>
-            <Greenbutton color="#014715" />
+            </Link>
+            <Greenbutton color="#014715" style={{background:"linear-gradient(90deg, #2CFE05 -23.73%, #FFF 186.15%)"}}/>
+
           </div>
         </div>
 
@@ -153,7 +162,7 @@ export default function Footer() {
             <div className="space-y-2">
               <SectionHeader title="Address" />
               <div className="space-y-2 mt-3 ">
-                <address className="custom-tag-text  text-white w-full ">
+                <address className="custom-tag-text font-family-helvetica-now text-white w-full ">
                   New No.111, Old No.141, AWFIS Building, Rajiv Gandhi Salai,
                   Indore, Madhya Pradesh 600096
                 </address>
@@ -162,7 +171,7 @@ export default function Footer() {
 
             <div className="py-4 md:py-6">
               <SectionHeader title="Phone" />
-              <div className="mt-3">
+              <div className="mt-3 font-family-helvetica-now">
                 <p className="custom-tag-text  text-white w-full ">
                   +91 9884914006
                 </p>
@@ -175,7 +184,7 @@ export default function Footer() {
             <div className="">
               <SectionHeader title="Email" />
               <div className="mt-3 ">
-                <p className="custom-tag-text  text-white w-full ">
+                <p className="custom-tag-text font-family-helvetica-now text-white w-full ">
                   support@betterinvest.club
                 </p>
               </div>
@@ -186,15 +195,15 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="border-t border-white pt-4 md:pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Copyright and Links */}
-          <div className="flex flex-col md:flex-row items-center gap-6 custom-text-base text-white/70">
+          <div className="flex flex-col md:flex-row items-center gap-6 custom-text-base text-white/70 font-family-helvetica-now">
             <p>© 2025 All Rights Reserved</p>
 
             <div className="flex flex-row">
-              <p className="text-white transition-colors">
+              <p className="text-white transition-colors font-family-helvetica-now">
                 Terms and Conditions
               </p>
               <span className="px-2">|</span>
-              <p className="text-white transition-colors ">Privacy Policy</p>
+              <p className="text-white transition-colors font-family-helvetica-now">Privacy Policy</p>
             </div>
           </div>
 

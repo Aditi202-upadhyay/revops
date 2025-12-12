@@ -70,7 +70,7 @@ const companyDetails = [
 export default function MapSection() {
   return (
     <section>
-      <div className="w-container flex flex-col md:flex-row gap-8 lg:gap-12 p-4 md:p-6 rounded-xl blade-top-margin-sm blade-bottom-margin-lg bg-linear-to-l from-green to-darkgreen">
+      <div style={{background:"linear-gradient(238deg, #26DF04 0.9%, #0D5001 69.22%)"}} className="w-container flex flex-col md:flex-row gap-8 lg:gap-12 p-4 md:p-6 rounded-xl blade-top-margin-sm blade-bottom-margin-lg ">
         <div className="w-full md:w-[50%]   ">
           <div className=" lg:mx-16">
             {companyDetails.map((details, index) => {
@@ -85,9 +85,9 @@ export default function MapSection() {
             })}
             <div className="flex items-center gap-4">
               <div className="w-2 h-2 bg-green" />
-              <h4 className={`custom-text-md font-medium text-white`}>
+              <h5 className={`custom-text-md font-medium text-white font-family-helvetica-now`}>
                 Follow us on
-              </h4>
+              </h5>
             </div>
             <div className="flex items-center gap-4 ps-6  pt-2">
               <SocialIcon icon="youtube" href="#" color="#fff"/>
@@ -127,8 +127,8 @@ const Details = ({
     <div className="flex flex-row items-start gap-4 my-4 md:my-6">
       {icon}
       <div>
-        <h5 className="text-white custom-text-md">{title}</h5>
-        <h6 className="text-white custom-text-md max-w-sm">{details}</h6>
+        <h5 className="text-white custom-text-md font-medium font-family-helvetica-now">{title}</h5>
+        <h6 className="text-white custom-text-md max-w-sm font-family-helvetica-now">{details}</h6>
       </div>
     </div>
   );

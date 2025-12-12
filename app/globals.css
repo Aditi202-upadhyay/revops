@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+
 
 
 @custom-variant dark (&:is(.dark *));
@@ -7,20 +7,22 @@
 html,
 body {
   scroll-behavior: smooth;
-  font-family: "Poppins";
-  background-color:lightgray;
+  background-color: #E8E8E7;
 
 }
 
+
+
 @theme inline {
   --color-gray: #454545;
-  --color-black:#0A0A0A;
-  --color-green:#26DF04;
-  --color-darkgreen:#014715;
-  --color-lightDarkGreen:#0D5001;
-  --color-white:#FFFFFF;
-  --color-lightgray:#E8E8E7
-
+  --color-black: #0A0A0A;
+  --color-green: #26DF04;
+  --color:greenShade:#215817;
+  --color-darkgreen: #014715;
+  --color-lightDarkGreen: #0D5001;
+  --color-white: #FFFFFF;
+  --color-lightgray: #E8E8E7 ;
+  
   --breakpoint-3xl: 1921px;
   --breakpoint-2xlg: 1700px;
   --breakpoint-2xl: 1536px;
@@ -33,13 +35,12 @@ body {
   --breakpoint-md: 768px;
   --breakpoint-sm: 640px;
 
-  --font-poppins: "Poppins", "sans-serif";
+  --font-family-helvetica-now: 'Helvetica Now Display';
+  --font-playfair: var(--font-playfair);
+
 
 }
-html {
-  scroll-behavior: smooth;
-  font-family: "Poppins", sans-serif;
-}
+
 
 @layer components {
   .d {
@@ -83,21 +84,7 @@ html {
 
   }
 
-  .blade-y-padding-sm {
-    @apply py-5 md:py-6 lg:py-8 xl:py-10 2xl:py-14;
-  }
-
-  .blade-y-padding {
-    @apply py-8 md:py-10 lg:py-14 xl:py-16 2xl:py-20;
-  }
-
-  .blade-y-padding-lg {
-    @apply py-10 md:py-12 lg:py-20 xl:py-24 2xl:py-28;
-  }
-
-  .blade-y-padding-xl {
-    @apply py-16 md:py-10 lg:py-20 xl:py-28 2xl:py-36;
-  }
+ 
 
   .blade-top-margin {
     @apply mt-8 md:mt-10 lg:mt-12 xl:mt-16 2xl:mt-20;
@@ -123,21 +110,7 @@ html {
     @apply mb-10 md:mb-12 lg:mb-16 xl:mb-20 2xl:mb-24;
   }
 
-  .blade-y-margin-sm {
-    @apply my-5 md:my-6 lg:my-8 xl:my-10 2xl:my-14;
-  }
-
-  .blade-y-margin {
-    @apply my-8 md:my-10 lg:my-14 xl:my-16 2xl:my-20;
-  }
-
-  .blade-y-margin-lg {
-    @apply my-10 md:my-12 lg:my-20 xl:my-24 2xl:my-28;
-  }
-
-  .blade-y-margin-xl {
-    @apply my-16 md:my-10 lg:my-20 xl:my-28 2xl:my-36;
-  }
+ 
 
   .w-container-xs {
     @apply mx-auto w-11/12 max-w-screen-xl sm:px-3 lg:w-8/12;
@@ -163,6 +136,8 @@ html {
     @apply md:w-11/12 px-3 2xlg:px-20 max-w-[1920px] mx-auto;
   }
 
+ 
+
   .custom-transition {
     @apply transition-all duration-300 ease-linear;
   }
@@ -176,7 +151,7 @@ html {
 
   /* h1 */
   .custom-text-3xl {
-    @apply text-[32px] sm:text-[36px] md:text-[40px] lg:text-[40px] xl:text-[44px] 2xl:text-[54px] leading-[1.1] xl:leading-[50px] 2xl:leading-[70px] tracking-[-0.06em];
+    @apply text-[32px] sm:text-[36px] md:text-[40px] lg:text-[40px] xl:text-[44px] 2xl:text-[54px] leading-[1.1] xl:leading-[50px] 2xl:leading-[70px] tracking-[-0.03em];
   }
 
   /* h2 */
@@ -205,13 +180,14 @@ html {
   }
 
   .custom-tag-text {
-    @apply text-[14px] md:text-[18px] xl:text-[18px] leading-[1.5] tracking-tight;
+    @apply text-[14px] md:text-[18px] xl:text-[18px] leading-[1.5] tracking-[0.01em];
   }
 
   /* p */
   p {
     @apply text-[16px] 2xl:text-[18px] leading-[1.5] tracking-normal;
   }
+
   .custom-text-para {
     @apply text-[16px] 2xl:text-[18px] leading-[1.5] tracking-normal;
   }
@@ -228,6 +204,23 @@ html {
     @apply text-base leading-normal md:leading-normal lg:leading-normal xl:text-xl 2xl:text-xl 2xl:leading-normal;
   }
 
+  .animate-fade-in {
+    animation: fad-in 0.5s ease-in-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fad-up 0.5s ease-in-out forwards;
+  }
+
+  .animate-fade-up-slow {
+    animation: fad-up 0.8s ease-in-out forwards;
+  }
+
+
+  .animate-fade-up-slower {
+    animation: fad-up 1.1s ease-in-out forwards;
+  }
+
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -235,31 +228,86 @@ html {
   }
 }
 
+
+
 @layer utilities {
-  .gradient{
- background: #199103;
-background: linear-gradient(180deg,rgba(25, 145, 3, 1) 0%, rgba(7, 43, 1, 1) 100%);
-  }
-
-  .buttonGradient{
+  .gradient {
     background: #199103;
-background: linear-gradient(180deg,rgba(25, 145, 3, 1) 0%, #1E5114 100%);
+    background: linear-gradient(180deg, rgba(25, 145, 3, 1) 0%, rgba(7, 43, 1, 1) 100%);
   }
 
- .radialGlow {
-  background: radial-gradient(
-    100% 100% at 60% 50%,
-    rgba(38, 223, 4, 1) 10%,
-    rgba(21, 121, 2, 1) 56%,
-    rgba(0, 0, 0, 0) 100%
-  );
- 
-  filter: blur(160px);
-  position: absolute;
+  .buttonGradient {
+    background: #199103;
+    background: linear-gradient(180deg, rgba(25, 145, 3, 1) 0%, #1E5114 100%);
+  }
+
+  .radialGlow {
+   background-color: rgba(0, 234, 108, 1);
+background: radial-gradient(100% 100% at 40.8% 36.7%, rgba(0, 234, 108, 1) 0%, rgba(38, 223, 4, 1) 24.15%, rgba(22, 34, 26, 1) 72.44%, rgba(23, 26, 23, 1) 94.58%, rgba(255, 195, 113, 1) 100%);
+
+  }
+
+  @keyframes fad-in {
+    from {
+      opacity: 0
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fad-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1 !important;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes smooth-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
+.smooth-spin {
+  animation: smooth-rotate 8s linear infinite;
 }
 
+  @font-face {
+    font-family: "Helvetica Now Display";
+    src: url("/font/HelveticaNowDisplay-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+  }
 
 
+  @font-face {
+    font-family: "Helvetica Now Display";
+    src: url("/font/HelveticaNowDisplay-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
 
+  @font-face {
+    font-family: "Helvetica Now Display";
+    src: url("/font/HelveticaNowDisplay-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+   @font-face {
+    font-family: "Helvetica Now Display";
+    src: url("/font/HelveticaNowDisplay-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+}
