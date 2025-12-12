@@ -29,7 +29,7 @@ type NavLinks = {
   label: string;
   href: string;
 };
-const navDropDown: NavDropDownProps[] = [
+const navDropDown: NavDropDownProps[] =[
   {
     category: "Solutions",
     items: [
