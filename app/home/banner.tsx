@@ -6,8 +6,7 @@ export default function Banner() {
     return (
         <section>
            <div className="bg-black relative h-[76vh] lg:mx-4  lg:h-[95vh] lg:rounded-3xl   lg:my-6  overflow-hidden">
-
-                <div className="absolute right-0 top-0 w-[45rem] h-[45rem] bg-[radial-gradient(circle_at_top_right,#26DF04,transparent_80%)] "></div>
+     <div className="absolute right-0 top-0 w-[45rem] h-[45rem] bg-[radial-gradient(circle_at_top_right,#26DF04,transparent_80%)] "></div>
                 <div className="absolute inset-0 ">
                     <video
                         title="RevOps marketing solutions background video"
@@ -41,6 +40,6 @@ export default function Banner() {
                     </div>
                 </div>
             </div>
-        </section>
+      </section>
     )
 }
