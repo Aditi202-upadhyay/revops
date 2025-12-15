@@ -3,12 +3,10 @@ import { Heading } from "../component/atom/decorativeHeading";
 export default function Solution() {
   return (
     <section className=" blade-bottom-padding-lg ">
-      <div className="w-full h-screen z-20 relative bg-black">
+      <div className="w-full h-[48rem] sm:h-screen z-20 relative bg-black">
 
-        <div className="absolute inset-0 ">
-          <video arial-label="background-video" src="/assets/home/backgroundVideo.mp4" autoPlay loop muted className="opacity-60 w-full h-full object-cover object-bottom" />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#215817]  to-[#215817] mix-blend-color"></div>
-        </div>
+        
+         <div className="absolute inset-0 bg-gradient-to-b from-[#215817]  via-b[#215817]/40 to-transparent"></div>
 
 
         <div className="absolute inset-0 flex flex-col items-center justify-center z-30">
@@ -31,7 +29,7 @@ export default function Solution() {
 type solutionProps = {
   heading: string;
   description: string;
-  referId:string;
+  referId: string;
 };
 
 const solutionsData: solutionProps[] = [
@@ -39,19 +37,19 @@ const solutionsData: solutionProps[] = [
     heading: "D2C",
     description:
       "Grow Your Channel, Secure Funding. Monetize your passion and fuel your channel's growth with funding based on your YouTube earnings.",
-    referId:"d2c"
+    referId: "d2c"
   },
   {
     heading: "B2C",
     description:
       "Grow Your Channel, Secure Funding. Monetize your passion and fuel your channel's growth with funding based on your YouTube earnings.",
-    referId:"b2c"
+    referId: "b2c"
   },
   {
     heading: "B2B",
     description:
       "Grow Your Channel, Secure Funding. Monetize your passion and fuel your channel's growth with funding based on your YouTube earnings.",
-    referId:"b2b"
+    referId: "b2b"
   },
 ];
 

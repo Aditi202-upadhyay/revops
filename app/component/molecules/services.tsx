@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { Greenbutton } from "../atom/buttons";
 import { Heading } from "../atom/decorativeHeading";
 import Image from 'next/image'
@@ -51,10 +53,15 @@ export default function GlobalService({
 }
 
 const Services = ({ details }: { details: ServiceProps }) => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div>
-      <div className="relative group py-4 md:my-0  flex flex-col gap-2 md:flex-row md:justify-between md:items-center border-b-2 border-gray/40 w-full">
-       
+      <div
+        className="relative group py-4 md:my-0  flex flex-col gap-2 md:flex-row md:justify-between md:items-center border-b-2 border-gray/40 w-full"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+
         <div id={details.referId} className="md:my-4 ">
           <div className="flex gap-2  items-center">
             <div className="custom-text-base text-gray">{details.id}.</div>
@@ -63,11 +70,24 @@ const Services = ({ details }: { details: ServiceProps }) => {
             </h3>
           </div>
           <div>
-            <p className="text-gray max-w-md font-family-helvetica-now  custom-text-md ps-0 md:ps-10 pt-2">
+            <p className="text-gray max-w-xs  lg:max-w-md font-family-helvetica-now  custom-text-md ps-0 md:ps-10 pt-2">
               {details.description}
             </p>
           </div>
         </div>
+
+        {/* Hover Image */}
+        {isHovered && details.image && (
+          <div className="hidden md:block absolute left-[65%] xl:left-[60%] top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[12rem] xl:w-[20rem] h-[12rem] rounded-lg overflow-hidden border-2 border-green/20 bg-white shadow-xl pointer-events-none transition-opacity duration-300">
+            <Image
+              src={details.image}
+              alt={details.heading}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
+
         <div className="flex gap-2 ">
           <p className="text-darkgreen font-bold custom-text-md text-nowrap font-family-helvetica-now">
             Know more{" "}

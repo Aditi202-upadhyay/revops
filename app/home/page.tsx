@@ -35,7 +35,7 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline",
       link: "#",
-      image: "/assets/blogs/blog1.png",
+      image: "/assets/blogs/blogs1.png",
       referId: "performance-marketing"
     },
     {
@@ -44,7 +44,7 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline ",
       link: "#",
-      image: "/assets/blogs/blog1.png",
+      image: "/assets/blogs/blogs1.png",
       referId: "lead-generation"
     },
     {
@@ -53,7 +53,7 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline ",
       link: "#",
-      image: "/assets/blogs/blog1.png",
+      image: "/assets/blogs/blogs1.png",
       referId: "account-based-marketing"
 
     },
@@ -63,7 +63,7 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline  ",
       link: "#",
-      image: "/assets/blogs/blog1.png",
+      image: "/assets/blogs/blogs1.png",
       referId: "search-engine-optimization"
     },
     {
@@ -72,7 +72,7 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline ",
       link: "#",
-      image: "/assets/blogs/blog1.png",
+      image: "/assets/blogs/blogs1.png",
       referId: "generative-engine-optimization"
     },
     {
@@ -81,7 +81,7 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline ",
       link: "#",
-      image: "/assets/blogs/blog1.png",
+      image: "/assets/blogs/blogs1.png",
       referId: "conversion-rate-optimization"
     },
     {
@@ -90,7 +90,7 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline ",
       link: "#",
-      image: "/assets/blogs/blog1.png",
+      image: "/assets/blogs/blogs1.png",
       referId: "email-marketing"
     },
     {
@@ -99,7 +99,7 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline  ",
       link: "#",
-      image: "/assets/blogs/blog1.png",
+      image: "/assets/blogs/blogs1.png",
       referId: "whatsapp-marketing"
     },
 

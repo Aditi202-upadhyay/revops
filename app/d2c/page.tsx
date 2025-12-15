@@ -18,7 +18,7 @@ export default function D2C() {
 }
 
 const seviceData: ParentsCom = {
-  heading: "100+ <i class='font-normal'>Companies</i> trusted us <br class='block'/>  to improve their <i class='font-normal'>marketing</i>",
+  heading: "Level up your marketing,<br class='block'/> improve <i class='font-normal font-playfair'>marketing ROI</i>",
   description: "We design and optimize growth systems that drive pipeline, align sales and marketing, and make revenue predictable. sales and marketing, and make revenue predictable.",
   data: [
     {
@@ -27,28 +27,73 @@ const seviceData: ParentsCom = {
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline",
       link: "#",
+      image: "/assets/blogs/blogs1.png",
+      referId: "performance-marketing"
     },
     {
       id: "02",
-      heading: "SEO/GEO",
+      heading: "Lead Generation",
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline ",
       link: "#",
+      image: "/assets/blogs/blogs1.png",
+      referId: "lead-generation"
     },
     {
       id: "03",
+      heading: "Account-Based Marketing",
+      description:
+        "Improved in ROI and more inbound sales calls, more qualified pipeline ",
+      link: "#",
+      image: "/assets/blogs/blogs1.png",
+      referId: "account-based-marketing"
+
+    },
+    {
+      id: "04",
+      heading: "Search Engine Optimization",
+      description:
+        "Improved in ROI and more inbound sales calls, more qualified pipeline  ",
+      link: "#",
+      image: "/assets/blogs/blogs1.png",
+      referId: "search-engine-optimization"
+    },
+    {
+      id: "05",
+      heading: "Generative Engine Optimization",
+      description:
+        "Improved in ROI and more inbound sales calls, more qualified pipeline ",
+      link: "#",
+      image: "/assets/blogs/blogs1.png",
+      referId: "generative-engine-optimization"
+    },
+    {
+      id: "06",
       heading: "Conversion Rate Optimization",
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline ",
       link: "#",
+      image: "/assets/blogs/blogs1.png",
+      referId: "conversion-rate-optimization"
     },
     {
-      id: "04",
-      heading: "Marketing Analytics",
+      id: "07",
+      heading: "Email Marketing",
+      description:
+        "Improved in ROI and more inbound sales calls, more qualified pipeline ",
+      link: "#",
+      image: "/assets/blogs/blogs1.png",
+      referId: "email-marketing"
+    },
+    {
+      id: "08",
+      heading: "WhatsApp Marketing",
       description:
         "Improved in ROI and more inbound sales calls, more qualified pipeline  ",
       link: "#",
-    }
+      image: "/assets/blogs/blogs1.png",
+      referId: "whatsapp-marketing"
+    },
 
   ]
 }

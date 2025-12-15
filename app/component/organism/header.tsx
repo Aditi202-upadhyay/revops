@@ -29,7 +29,7 @@ type NavLinks = {
   label: string;
   href: string;
 };
-const navDropDown: NavDropDownProps[] =[
+const navDropDown: NavDropDownProps[] = [
   {
     category: "Solutions",
     items: [
@@ -88,7 +88,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="lg:hidden  py-4 bg-lightDarkGreen/95 block flex justify-between items-center  relative px-2">
+      <div className="lg:hidden  py-4 bg-lightDarkGreen/95 block flex justify-between items-center  relative px-2 z-[1000]">
         <div className="w-36 h-6  relative">
           <Link href="/" rel="noopener norefferer">
 
@@ -112,7 +112,7 @@ export default function Header() {
       </div>
       {closeIcon && (
         <div className="absolute top-0 left-0 w-full">
-          <MobileNavbar closeIcon={closeIcon} />
+          <MobileNavbar closeIcon={closeIcon} onClose={handleSwitch} />
         </div>
       )}
     </nav>
@@ -146,8 +146,8 @@ const NavDropDown = () => {
           <DropdownMenuContent>
             <DropdownMenuSeparator />
             {dropdown.items.map((item, itemIdx) => (
-              <DropdownMenuItem key={itemIdx}>
-                <Link href={item.href} rel="noopener noreferrer" className="w-full">
+              <DropdownMenuItem key={itemIdx} asChild>
+                <Link href={item.href} rel="noopener noreferrer" className="w-full cursor-pointer hover:text-green">
                   {item.label}
                 </Link>
               </DropdownMenuItem>
@@ -172,7 +172,7 @@ const TalkToUs = () => {
   );
 };
 
-const MobileNavbar = ({ closeIcon }: { closeIcon: boolean }) => {
+const MobileNavbar = ({ closeIcon, onClose }: { closeIcon: boolean; onClose: () => void }) => {
   useEffect(() => {
     if (closeIcon) {
       document.body.style.overflow = "hidden";
@@ -203,19 +203,24 @@ const MobileNavbar = ({ closeIcon }: { closeIcon: boolean }) => {
 
 
   return (
-    <nav className="pt-2 bg-white overflow-hidden rounded-sm ps-6 mb-8 h-dvh z-[999]">
+    <nav className="mt-14 bg-white overflow-hidden rounded-sm ps-6 mb-8 h-dvh z-[999]">
       <div className="py-1">
-        <p className=" text-md py-1 text-gray font-family-helvetica-now animate-link">Work</p>
-        <p className=" text-md py-1 text-gray font-family-helvetica-now animate-link">About</p>
-        <p className=" text-md py-1 text-gray font-family-helvetica-now animate-link">Blogs</p>
+        <Link href="/work" onClick={onClose}>
+          <p className="  py-1  text-gray font-medium font-family-helvetica-now animate-link">Work</p>
+        </Link>
+        <Link href="/about" onClick={onClose}>
+          <p className="  py-1 text-gray font-medium font-family-helvetica-now animate-link">About</p>
+        </Link>
+        <Link href="/blogs" onClick={onClose}>
+          <p className="  py-1 text-gray font-medium font-family-helvetica-now animate-link">Blogs</p>
+        </Link>
       </div>
-      <MobileNavDropDown />
-
+      <MobileNavDropDown onClose={onClose} />
     </nav>
   );
 };
 
-const MobileNavDropDown = () => {
+const MobileNavDropDown = ({ onClose }: { onClose: () => void }) => {
   return (
     <div>
       {navDropDown.map((dropdown, index) => {
@@ -223,7 +228,7 @@ const MobileNavDropDown = () => {
           <div key={index} className=" pt-2 animate-link">
             <SectionHeader color="text-black" title={dropdown.category} />
             {dropdown.items.map((item, itemIdx) => (
-              <Link href={item.href} key={itemIdx} className="w-full" rel="noopener noreferrer">
+              <Link href={item.href} key={itemIdx} className="w-full hover:text-green font-medium cursor-pointer" rel="noopener noreferrer" onClick={onClose}>
                 <p className="my-[9px] text-gray font-family-helvetica-now font-medium w-fit hover:text-green">{item.label}</p>
               </Link>
             ))}
