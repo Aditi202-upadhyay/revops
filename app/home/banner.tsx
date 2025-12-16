@@ -1,11 +1,53 @@
-
+"use client"
+import { useEffect, useRef } from "react";
 import { Heading } from "../component/atom/decorativeHeading";
 import ClientSwiper from "../component/molecules/clientSwiper";
 
+import gsap from "gsap";
+
 export default function Banner() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const headingRef = useRef<HTMLHeadingElement>(null);
+    const textRef = useRef<HTMLParagraphElement>(null);
+    const clientsRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        // Initial states
+        gsap.set(containerRef.current, { scale: 0.95, opacity: 0 });
+        gsap.set([headingRef.current, textRef.current, clientsRef.current], { y: 100, opacity: 0 });
+
+        tl.to(containerRef.current, {
+            scale: 1,
+            opacity: 1,
+            duration: 1.8,
+            stagger: 0.2
+        })
+            .to(headingRef.current, {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+            }, "-=1.0")
+            .to(textRef.current, {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+            }, "-=1.2")
+            .to(clientsRef.current, {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+            }, "-=1.2");
+
+        return () => {
+            tl.kill();
+        };
+    }, []);
+
     return (
         <section className="blade-bottom-margin-lg">
-            <div className="bg-black relative h-[76vh] lg:mx-4  lg:h-[95vh] lg:rounded-3xl   lg:my-6  overflow-hidden ">
+            <div ref={containerRef} className="bg-black relative h-[76vh] lg:mx-4  lg:h-[95vh] lg:rounded-3xl   lg:my-6  overflow-hidden opacity-0">
                 <div className="absolute right-0 top-0 w-[45rem] h-[45rem] bg-[radial-gradient(circle_at_top_right,#26DF04,transparent_80%)] "></div>
                 <div className="absolute inset-0 ">
                     <video
@@ -28,12 +70,12 @@ export default function Banner() {
 
                 <div className="h-full flex flex-col justify-center items-center text-center px-4 z-10">
                     <div className=" flex flex-col justify-center items-center">
-                        <strong className="font-family-helvetica-now font-bold text-white custom-text-3xl animate-fade-up-slower">We turn your <i className="italic font-playfair  font-normal">marketing into <br />customers,</i> not just clicks</strong>
-                        <p className="!text-white/90 py-4 custom-text-md font-family-helvetica-now max-w-xl animate-fade-up-slower">We design and optimize growth systems that drive pipeline, align sales & marketing, and make revenue predictable.</p>
+                        <strong ref={headingRef} className="font-family-helvetica-now font-bold text-white custom-text-3xl">We turn your <i className="italic font-playfair  font-normal">marketing into <br />customers,</i> not just clicks</strong>
+                        <p ref={textRef} className="!text-white/90 py-4 custom-text-md font-family-helvetica-now max-w-xl">We design and optimize growth systems that drive pipeline, align sales & marketing, and make revenue predictable.</p>
                     </div>
                 </div>
 
-                <div className="absolute bottom-8 left-0 right-0 flex flex-col items-center justify-center z-20">
+                <div ref={clientsRef} className="absolute bottom-8 left-0 right-0 flex flex-col items-center justify-center z-20">
                     <Heading title="Our Clients" color="#FFFFFF" />
                     <div className="w-full md:w-[50%] mt-4">
                         <ClientSwiper />

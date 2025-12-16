@@ -45,42 +45,61 @@ const items = [
 ]
 
 export default function ProcessSection() {
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    // Initial check
+    checkIsDesktop();
+
+    // Listener
+    window.addEventListener("resize", checkIsDesktop);
+    return () => window.removeEventListener("resize", checkIsDesktop);
+  }, []);
+
+  if (isDesktop === null) return null; // Or a loading state/min-height container to reduce layout shift
+
+  return isDesktop ? <ProcessDesktop /> : <ProcessMobile />;
+}
+
+const ProcessDesktop = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsContainerRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-
-  const handleNavigation = (index: number) => {
-    setActiveIndex(index);
-    swiperInstance?.slideTo(index);
-  };
   useEffect(() => {
     if (!containerRef.current || !cardsContainerRef.current) return
 
     const mm = gsap.matchMedia();
 
+    // We can just run the logic directly since this component is only rendered on desktop
+    // But keeping matchMedia context is good practice for cleanup
     mm.add("(min-width: 1024px)", () => {
       const cards = cardRefs.current.filter(Boolean)
       const totalItems = cards.length
+      // Guard against empty cards or missing refs to prevent errors
+      if (totalItems === 0) return;
+
       const itemHeight = cards[0]?.offsetHeight || 0
       const gap = 40 // Matches mb-10 (40px)
       const totalItemHeight = itemHeight + gap
 
-
+      // Initial state
       gsap.set(cards, {
         opacity: 0.2,
         filter: "blur(4px)",
         scale: 0.9,
       })
 
+      // First item active
       gsap.set(cards[0], {
         opacity: 1,
         filter: "blur(0px)",
         scale: 1,
       })
-
 
       const listHeight = cardsContainerRef.current!.offsetHeight
       const startY = (listHeight / 2) - (itemHeight / 2)
@@ -104,9 +123,7 @@ export default function ProcessSection() {
 
         const nextCard = cards[i + 1]
 
-
         timeline
-
           .to(cardsContainerRef.current, {
             y: startY - ((i + 1) * totalItemHeight),
             duration: 1,
@@ -137,30 +154,28 @@ export default function ProcessSection() {
   }, [])
 
   return (
-    <section className="relative lg:min-h-screen h-[98vh]  blade-bottom-padding-lg overflow-hidden">
-      <div ref={containerRef} className="w-full h-screen bg-black blade-top-padding-sm flex items-center justify-center relative lg:block hidden">
+    <section className="relative min-h-screen lg:h-auto blade-bottom-padding-sm overflow-clip hidden lg:block">
+      <div ref={containerRef} className="w-full h-screen bg-black blade-top-padding-sm flex items-center justify-center relative">
 
-
-        <div
-          className="absolute bottom-0 -left-[200px] md:-left-[100px] w-[600px] h-[600px] md:w-[600px] md:h-[600px] rounded-full opacity-40 blur-[80px] md:blur-[120px]"
+         <div
+          className="absolute bottom-0 -left-[200px] md:-left-[300px] w-[600px] h-[600px] md:w-[700px] md:h-[700px] rounded-full opacity-40 blur-[80px] md:blur-[120px]"
           style={{
             background: "#26DF04",
           }}
         />
 
-        {/* Right Gradient - Green */}
-        <div
+
+         <div
           className="absolute bottom-0 -right-[200px] md:-right-[300px] w-[600px] h-[600px] md:w-[700px] md:h-[700px] rounded-full opacity-40 blur-[80px] md:blur-[120px]"
           style={{
             background: "#26DF04",
           }}
         />
 
+        <div className="w-container-xl px-4 z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 h-full">
 
-        <div className="w-container-xl px-4 z-10  ">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 h-full ">
-
-            <div className="flex flex-col justify-center h-full  relative">
+            <div className="flex flex-col justify-center h-full relative ">
               <div className="">
                 <Heading title="Our Process" color="#ffff" />
                 <h2 className="custom-text-3xl font-bold text-white py-2">
@@ -169,9 +184,14 @@ export default function ProcessSection() {
                 </h2>
               </div>
 
-
-              <div className=" mt-8 w-full  2xl:w-[34rem] h-[22rem] relative bg-darkgreen xl:h-[25rem] rounded-md flex items-center justify-center">
-
+              {/* Decorative geometric pattern - remains fixed */}
+              <div className=" mt-8 w-full  2xl:w-[34rem] h-[22rem] relative bg-lightDarkGreen xl:h-[25rem] rounded-md flex items-center justify-center">
+                <div
+                  className="absolute left-0  w-[400px] h-[400px] rounded-full opacity-30 blur-[120px] "
+                  style={{
+                    background: "#0D5001",
+                  }}
+                />
                 <svg width="318" height="300" viewBox="0 0 318 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="97.2366" cy="97.2366" r="95.636" stroke="white" strokeWidth="3.20125" />
                   <circle cx="97.2366" cy="202.692" r="95.636" stroke="white" strokeWidth="3.20125" />
@@ -204,7 +224,7 @@ export default function ProcessSection() {
                         <span className="text-white custom-text-xl font-bold font-family-helvetica-now">{item.number}</span>
                         <h3 className=" font-bold custom-text-xl text-white font-family-helvetica-now">{item.title}</h3>
                       </div>
-                      <p className="text-white custom-text-md max-w-md font-family-helvetica-now">{item.description}</p>
+                      <p className="text-white/80 custom-text-md max-w-md font-family-helvetica-now">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -213,63 +233,77 @@ export default function ProcessSection() {
           </div>
         </div>
       </div>
-
-      <div className="lg:hidden block w-container-xl">
-        <div className=" flex justify-center items-center flex-col text-center">
-          <Heading title="Our Process" color="#014715" />
-          <h2 className="custom-text-3xl font-bold text-black py-2">
-            100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to
-            improve their <i className="font-normal">marketing</i>
-          </h2>
-        </div>
-        <div className="relative">
-          <Swiper
-           className="!overflow-visible"
-            modules={[Navigation]}
-            navigation={false}
-            onSwiper={(swiper) => setSwiperInstance(swiper)}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            grabCursor
-            slidesPerView="auto"
-            spaceBetween={20}
-            centerInsufficientSlides={true}
-            breakpoints={{
-              456: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              960: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              1020: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              1280: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              1400: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-            }}
-          >
-            {items.map((obj, index: number) => (
-              <SwiperSlide key={index} className="!w-auto ">
-                <Card data={obj} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <SwiperButtons swiper={swiperInstance} />
-        </div>
-      </div>
     </section>
+  )
+}
+
+const ProcessMobile = () => {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+
+  const handleNavigation = (index: number) => {
+    setActiveIndex(index);
+    swiperInstance?.slideTo(index);
+  };
+
+  return (
+    <div className="lg:hidden block  ">
+      <div className=" flex justify-center items-center flex-col text-center  mt-8">
+        <Heading title="Our Process" color="#014715" />
+        <h2 className="custom-text-3xl font-bold text-black py-2">
+          100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to
+          improve their <i className="font-normal">marketing</i>
+        </h2>
+      </div>
+      <div className="relative">
+        <Swiper
+          modules={[Navigation]}
+          navigation={false}
+          onSwiper={(swiper) => setSwiperInstance(swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          grabCursor
+          slidesPerView="auto"
+          spaceBetween={20}
+          centeredSlides={true}
+          centerInsufficientSlides={true}
+          breakpoints={{
+            456: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            960: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            1020: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            1280: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            1400: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+          }}
+        >
+          {items.map((obj, index: number) => (
+            <SwiperSlide key={index} className="!w-auto ">
+              <Card data={obj} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <SwiperButtons swiper={swiperInstance} />
+
+      </div>
+    </div>
   )
 }
 
@@ -287,7 +321,7 @@ const Card = ({ data }: { data: processProps }) => {
           </h3>
         </div>
 
-        <p className="text-white/90 custom-text-sm font-family-helvetica-now mt-4">
+        <p className="text-white/90 max-w-xs  custom-text-sm font-family-helvetica-now mt-4">
           {data.description}
         </p>
       </div>

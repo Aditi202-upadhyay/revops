@@ -5,7 +5,7 @@ import FeatureSwiper from "../component/molecules/featureSwiper";
 
 export default function Feature() {
   return (
-    <section className="blade-bottom-padding-lg">
+    <section className="blade-bottom-padding-lg mt-20 xl:mt-0">
       <div>
         <div className=" flex justify-center items-center flex-col text-center p-2">
           <Heading title="Featured in" color="#26DF04" />

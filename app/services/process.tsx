@@ -45,25 +45,44 @@ const items = [
 ]
 
 export default function ProcessSection() {
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    // Initial check
+    checkIsDesktop();
+
+    // Listener
+    window.addEventListener("resize", checkIsDesktop);
+    return () => window.removeEventListener("resize", checkIsDesktop);
+  }, []);
+
+  if (isDesktop === null) return null; // Or a loading state/min-height container to reduce layout shift
+
+  return isDesktop ? <ProcessDesktop /> : <ProcessMobile />;
+}
+
+const ProcessDesktop = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsContainerRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-
-  const handleNavigation = (index: number) => {
-    setActiveIndex(index);
-    swiperInstance?.slideTo(index);
-  };
   useEffect(() => {
     if (!containerRef.current || !cardsContainerRef.current) return
 
     const mm = gsap.matchMedia();
 
+    // We can just run the logic directly since this component is only rendered on desktop
+    // But keeping matchMedia context is good practice for cleanup
     mm.add("(min-width: 1024px)", () => {
       const cards = cardRefs.current.filter(Boolean)
       const totalItems = cards.length
+      // Guard against empty cards or missing refs to prevent errors
+      if (totalItems === 0) return;
+
       const itemHeight = cards[0]?.offsetHeight || 0
       const gap = 40 // Matches mb-10 (40px)
       const totalItemHeight = itemHeight + gap
@@ -135,11 +154,8 @@ export default function ProcessSection() {
   }, [])
 
   return (
-    <section className="relative lg:min-h-screen h-[98vh]  blade-bottom-padding-sm overflow-hidden">
-      <div ref={containerRef} className="w-full h-screen bg-[#E8E8E7] blade-top-padding-sm flex items-center justify-center relative lg:block hidden">
-
-
-
+    <section className="relative min-h-screen lg:h-auto blade-bottom-padding-sm overflow-clip hidden lg:block">
+      <div ref={containerRef} className="w-full h-screen bg-[#E8E8E7] blade-top-padding-sm flex items-center justify-center relative">
         <div className="w-container-xl px-4 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 h-full">
 
@@ -201,62 +217,77 @@ export default function ProcessSection() {
           </div>
         </div>
       </div>
-
-      <div className="lg:hidden block w-container-xl">
-        <div className=" flex justify-center items-center flex-col text-center  mt-8">
-          <Heading title="Our Process" color="#014715" />
-          <h2 className="custom-text-3xl font-bold text-black py-2">
-            100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to
-            improve their <i className="font-normal">marketing</i>
-          </h2>
-        </div>
-        <div className="relative">
-          <Swiper
-            modules={[Navigation]}
-            navigation={false}
-            onSwiper={(swiper) => setSwiperInstance(swiper)}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-            grabCursor
-            slidesPerView="auto"
-            spaceBetween={20}
-            centerInsufficientSlides={true}
-            breakpoints={{
-              456: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              960: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              1020: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              1280: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-              1400: {
-                slidesPerView: "auto",
-                spaceBetween: 20,
-              },
-            }}
-          >
-            {items.map((obj, index: number) => (
-              <SwiperSlide key={index} className="!w-auto ">
-                <Card data={obj} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <SwiperButtons swiper={swiperInstance} />
-        </div>
-      </div>
     </section>
+  )
+}
+
+const ProcessMobile = () => {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+
+  const handleNavigation = (index: number) => {
+    setActiveIndex(index);
+    swiperInstance?.slideTo(index);
+  };
+
+  return (
+    <div className="lg:hidden block  ">
+      <div className=" flex justify-center items-center flex-col text-center  mt-8">
+        <Heading title="Our Process" color="#014715" />
+        <h2 className="custom-text-3xl font-bold text-black py-2">
+          100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to
+          improve their <i className="font-normal">marketing</i>
+        </h2>
+      </div>
+      <div className="relative">
+        <Swiper
+          modules={[Navigation]}
+          navigation={false}
+          onSwiper={(swiper) => setSwiperInstance(swiper)}
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          grabCursor
+          slidesPerView="auto"
+          spaceBetween={20}
+          centeredSlides={true}
+          centerInsufficientSlides={true}
+          breakpoints={{
+            456: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            960: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            1020: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            1280: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+            1400: {
+              slidesPerView: "auto",
+              spaceBetween: 20,
+            },
+          }}
+        >
+          {items.map((obj, index: number) => (
+            <SwiperSlide key={index} className="!w-auto ">
+              <Card data={obj} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <SwiperButtons swiper={swiperInstance} />
+
+      </div>
+    </div>
   )
 }
 
@@ -274,7 +305,7 @@ const Card = ({ data }: { data: processProps }) => {
           </h3>
         </div>
 
-        <p className="text-white/90 custom-text-sm font-family-helvetica-now mt-4">
+        <p className="text-white/90 max-w-xs  custom-text-sm font-family-helvetica-now mt-4">
           {data.description}
         </p>
       </div>

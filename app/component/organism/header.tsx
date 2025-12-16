@@ -10,7 +10,7 @@ import {
 } from "@/app/component/ui/dropdown-menu";
 import { Greenbutton } from "../atom/buttons";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { SectionHeader } from "./footer";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -56,14 +56,29 @@ const navDropDown: NavDropDownProps[] = [
 
 export default function Header() {
   const [closeIcon, setCloseIcon] = useState<boolean>(false);
+  const navRef = useRef<HTMLElement>(null);
+
   const handleSwitch = () => {
     setCloseIcon((prev) => !prev);
   };
 
-
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(navRef.current,
+        { y: -100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power3.out",
+        }
+      );
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <nav className="  absolute lg:top-12 left-0 w-full z-[9999]">
+    <nav ref={navRef} className="opacity-0 absolute lg:top-12 left-0 w-full z-[9999]">
       <div className="bg-linear-to-br from-45% from-green from-green/35 via-transparent to-white mx-auto lg:p-[2px] max-w-[855px]  xl:max-w-[1000px] rounded-full">
         <div className="  p-4 xl:py-4 rounded-full shadow-lg   bg-white border border-white lg:block hidden">
           <div className="flex flex-row gap-6  xl:gap-8  items-center ">

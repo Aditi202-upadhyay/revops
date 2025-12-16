@@ -122,7 +122,7 @@ const workData: parentProp = {
     },
     {
       image: "/assets/blogs/blogs1.png",
-      logo: "/assets/home/logo.png  ",
+      logo: "/assets/home/logo.png",
       heading:
         "Dohler raised 2.71 million and website performance score improved from 52 to 84 after migrating to webflow from Bubble score improved.",
       link: "#",
@@ -136,7 +136,7 @@ const workData: parentProp = {
     },
     {
       image: "/assets/blogs/blogs1.png",
-      logo: "/assets/home/logo.png  ",
+      logo: "/assets/home/logo.png",
       heading:
         "Dohler raised 2.71 million and website performance score improved from 52 to 84 after migrating to webflow from Bubble score improved.",
       link: "#",
