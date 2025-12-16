@@ -59,82 +59,85 @@ export default function ProcessSection() {
   useEffect(() => {
     if (!containerRef.current || !cardsContainerRef.current) return
 
-    const cards = cardRefs.current.filter(Boolean)
-    const totalItems = cards.length
-    const itemHeight = cards[0]?.offsetHeight || 0
-    const gap = 40 // Matches mb-10 (40px)
-    const totalItemHeight = itemHeight + gap
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
+      const cards = cardRefs.current.filter(Boolean)
+      const totalItems = cards.length
+      const itemHeight = cards[0]?.offsetHeight || 0
+      const gap = 40 // Matches mb-10 (40px)
+      const totalItemHeight = itemHeight + gap
 
 
-    gsap.set(cards, {
-      opacity: 0.2,
-      filter: "blur(4px)",
-      scale: 0.9,
-    })
+      gsap.set(cards, {
+        opacity: 0.2,
+        filter: "blur(4px)",
+        scale: 0.9,
+      })
 
-    gsap.set(cards[0], {
-      opacity: 1,
-      filter: "blur(0px)",
-      scale: 1,
-    })
-
-
-    const listHeight = cardsContainerRef.current.offsetHeight
-    const startY = (listHeight / 2) - (itemHeight / 2)
-
-    gsap.set(cardsContainerRef.current, {
-      y: startY
-    })
-
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: `+=${totalItems * 600}`, // Scroll distance
-        scrub: 1,
-        pin: true,
-      },
-    })
-
-    cards.forEach((card, i) => {
-      if (i === cards.length - 1) return
-
-      const nextCard = cards[i + 1]
+      gsap.set(cards[0], {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+      })
 
 
-      timeline
+      const listHeight = cardsContainerRef.current!.offsetHeight
+      const startY = (listHeight / 2) - (itemHeight / 2)
 
-        .to(cardsContainerRef.current, {
-          y: startY - ((i + 1) * totalItemHeight),
-          duration: 1,
-          ease: "power2.inOut",
-        })
-        // Fade out current
-        .to(card, {
-          opacity: 0.2,
-          filter: "blur(4px)",
-          scale: 0.9,
-          duration: 1,
-          ease: "power2.inOut",
-        }, "<")
-        // Fade in next
-        .to(nextCard, {
-          opacity: 1,
-          filter: "blur(0px)",
-          scale: 1,
-          duration: 1,
-          ease: "power2.inOut",
-        }, "<")
-    })
+      gsap.set(cardsContainerRef.current, {
+        y: startY
+      })
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: `+=${totalItems * 600}`, // Scroll distance
+          scrub: 1,
+          pin: true,
+        },
+      })
+
+      cards.forEach((card, i) => {
+        if (i === cards.length - 1) return
+
+        const nextCard = cards[i + 1]
+
+
+        timeline
+
+          .to(cardsContainerRef.current, {
+            y: startY - ((i + 1) * totalItemHeight),
+            duration: 1,
+            ease: "power2.inOut",
+          })
+          // Fade out current
+          .to(card, {
+            opacity: 0.2,
+            filter: "blur(4px)",
+            scale: 0.9,
+            duration: 1,
+            ease: "power2.inOut",
+          }, "<")
+          // Fade in next
+          .to(nextCard, {
+            opacity: 1,
+            filter: "blur(0px)",
+            scale: 1,
+            duration: 1,
+            ease: "power2.inOut",
+          }, "<")
+      })
+    });
 
     return () => {
-      timeline.kill()
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+      mm.revert();
     }
   }, [])
 
   return (
-    <section className="relative min-h-screen  blade-bottom-padding-lg overflow-hidden">
+    <section className="relative lg:min-h-screen h-[98vh]  blade-bottom-padding-lg overflow-hidden">
       <div ref={containerRef} className="w-full h-screen bg-black blade-top-padding-sm flex items-center justify-center relative lg:block hidden">
 
 
@@ -155,9 +158,9 @@ export default function ProcessSection() {
 
 
         <div className="w-container-xl px-4 z-10  ">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 h-full ">
 
-            <div className="flex flex-col justify-center h-full relative">
+            <div className="flex flex-col justify-center h-full  relative">
               <div className="">
                 <Heading title="Our Process" color="#ffff" />
                 <h2 className="custom-text-3xl font-bold text-white py-2">
@@ -221,6 +224,7 @@ export default function ProcessSection() {
         </div>
         <div className="relative">
           <Swiper
+           className="!overflow-visible"
             modules={[Navigation]}
             navigation={false}
             onSwiper={(swiper) => setSwiperInstance(swiper)}

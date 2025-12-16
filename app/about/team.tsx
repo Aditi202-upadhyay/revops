@@ -15,7 +15,7 @@ export default function Team() {
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-center mt-8 md:mt-16">
+        <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-center md:mt-16">
 
           {data.map((ele, index) => {
             return (
@@ -33,7 +33,7 @@ export default function Team() {
 
 const CardUi = ({ data }: { data: profileProps }) => {
   return (
-   <div className="mt-6 relative w-full sm:w-[280px] h-[340px] lg:w-[300px] lg:h-[360px] rounded-2xl overflow-hidden bg-white border border-[#26DF04]/30 shadow-xl group">
+   <div className="lg:mt-6 relative w-full sm:w-[280px] h-[340px] lg:w-[300px] lg:h-[360px] rounded-2xl overflow-hidden bg-white border border-[#26DF04]/30 shadow-xl group">
 
       <Image
         src={data.image}

@@ -59,111 +59,83 @@ export default function ProcessSection() {
   useEffect(() => {
     if (!containerRef.current || !cardsContainerRef.current) return
 
-    const cards = cardRefs.current.filter(Boolean)
-    const totalItems = cards.length
-    const itemHeight = cards[0]?.offsetHeight || 0
-    const gap = 40 // Matches mb-10 (40px)
-    const totalItemHeight = itemHeight + gap
+    const mm = gsap.matchMedia();
 
-    // Initial state
-    // Center the first item. 
-    // The container is top-aligned to 50% of parent.
-    // We want the center of the first item to be at the center of the parent.
-    // Since container is translateY(-50%), the "center" of the container is at parent center.
-    // But the container content flows down.
-    // So we need to offset the container so the first item is centered.
-    // Actually, let's simplify:
-    // Parent is flex center. Container is just a wrapper.
-    // We will animate the container's Y position.
+    mm.add("(min-width: 1024px)", () => {
+      const cards = cardRefs.current.filter(Boolean)
+      const totalItems = cards.length
+      const itemHeight = cards[0]?.offsetHeight || 0
+      const gap = 40 // Matches mb-10 (40px)
+      const totalItemHeight = itemHeight + gap
 
-    // Reset everything first
-    gsap.set(cards, {
-      opacity: 0.2,
-      filter: "blur(4px)",
-      scale: 0.9,
-    })
+      // Initial state
+      gsap.set(cards, {
+        opacity: 0.2,
+        filter: "blur(4px)",
+        scale: 0.9,
+      })
 
-    // First item active
-    gsap.set(cards[0], {
-      opacity: 1,
-      filter: "blur(0px)",
-      scale: 1,
-    })
+      // First item active
+      gsap.set(cards[0], {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+      })
 
-    // Position container so first item is in view
-    // If we assume items are stacked, we just need to move the container up by (index * totalItemHeight)
-    // Let's set initial Y to 0 (assuming CSS handles the centering of the first item roughly)
-    // Actually, to center the first item, we might need to adjust.
-    // Let's rely on the layout: Parent is centered. Container is centered.
-    // If container is centered, the MIDDLE of the list is at the center.
-    // We want the FIRST item at the center.
-    // So we need to shift the container DOWN by (totalHeight / 2) - (itemHeight / 2).
-    // Or simpler: Use a timeline to animate from "Item 0 centered" to "Item N centered".
+      const listHeight = cardsContainerRef.current!.offsetHeight
+      const startY = (listHeight / 2) - (itemHeight / 2)
 
-    // Let's calculate the movement.
-    // We want to move the container UP by `totalItemHeight` for each step.
+      gsap.set(cardsContainerRef.current, {
+        y: startY
+      })
 
-    // Align first item to center:
-    // We can use a functional value or just set it.
-    // For now, let's assume the CSS `top-1/2 -translate-y-1/2` centers the *whole list*.
-    // We want to start with the *first item* centered.
-    // So we need to shift the list DOWN.
-    const listHeight = cardsContainerRef.current.offsetHeight
-    const startY = (listHeight / 2) - (itemHeight / 2)
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: `+=${totalItems * 600}`, // Scroll distance
+          scrub: 1,
+          pin: true,
+        },
+      })
 
-    gsap.set(cardsContainerRef.current, {
-      y: startY
-    })
+      cards.forEach((card, i) => {
+        if (i === cards.length - 1) return
 
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: `+=${totalItems * 600}`, // Scroll distance
-        scrub: 1,
-        pin: true,
-      },
-    })
+        const nextCard = cards[i + 1]
 
-    cards.forEach((card, i) => {
-      if (i === cards.length - 1) return
-
-      const nextCard = cards[i + 1]
-
-      // Step: Move from item i to item i+1
-      timeline
-        // Move container up
-        .to(cardsContainerRef.current, {
-          y: startY - ((i + 1) * totalItemHeight),
-          duration: 1,
-          ease: "power2.inOut",
-        })
-        // Fade out current
-        .to(card, {
-          opacity: 0.2,
-          filter: "blur(4px)",
-          scale: 0.9,
-          duration: 1,
-          ease: "power2.inOut",
-        }, "<")
-        // Fade in next
-        .to(nextCard, {
-          opacity: 1,
-          filter: "blur(0px)",
-          scale: 1,
-          duration: 1,
-          ease: "power2.inOut",
-        }, "<")
-    })
+        timeline
+          .to(cardsContainerRef.current, {
+            y: startY - ((i + 1) * totalItemHeight),
+            duration: 1,
+            ease: "power2.inOut",
+          })
+          // Fade out current
+          .to(card, {
+            opacity: 0.2,
+            filter: "blur(4px)",
+            scale: 0.9,
+            duration: 1,
+            ease: "power2.inOut",
+          }, "<")
+          // Fade in next
+          .to(nextCard, {
+            opacity: 1,
+            filter: "blur(0px)",
+            scale: 1,
+            duration: 1,
+            ease: "power2.inOut",
+          }, "<")
+      })
+    });
 
     return () => {
-      timeline.kill()
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+      mm.revert();
     }
   }, [])
 
   return (
-    <section className="relative min-h-screen  blade-bottom-padding-sm overflow-hidden">
+    <section className="relative lg:min-h-screen h-[98vh]  blade-bottom-padding-sm overflow-hidden">
       <div ref={containerRef} className="w-full h-screen bg-[#E8E8E7] blade-top-padding-sm flex items-center justify-center relative lg:block hidden">
 
 
@@ -171,7 +143,7 @@ export default function ProcessSection() {
         <div className="w-container-xl px-4 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 h-full">
 
-            <div className="flex flex-col justify-center h-full relative">
+            <div className="flex flex-col justify-center h-full relative ">
               <div className="">
                 <Heading title="Our Process" color="#014715" />
                 <h2 className="custom-text-3xl font-bold text-black py-2">
@@ -231,7 +203,7 @@ export default function ProcessSection() {
       </div>
 
       <div className="lg:hidden block w-container-xl">
-        <div className=" flex justify-center items-center flex-col text-center">
+        <div className=" flex justify-center items-center flex-col text-center  mt-8">
           <Heading title="Our Process" color="#014715" />
           <h2 className="custom-text-3xl font-bold text-black py-2">
             100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to
