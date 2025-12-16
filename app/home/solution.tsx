@@ -9,7 +9,7 @@ export default function Solution() {
          <div className="absolute inset-0 bg-gradient-to-b from-[#215817]  via-b[#215817]/40 to-transparent"></div>
 
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-30">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-30 px-2">
           <Heading title="Solutions" color="#fff" />
           <h3 className="font-bold text-white custom-text-3xl text-center pt-2 font-family-helvetica-now">
             100+ <i className="font-normal font-playfair">Companies</i> trusted us <br /> to

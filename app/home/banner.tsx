@@ -70,7 +70,7 @@ export default function Banner() {
 
                 <div className="h-full flex flex-col justify-center items-center text-center px-4 z-10">
                     <div className=" flex flex-col justify-center items-center">
-                        <strong ref={headingRef} className="font-family-helvetica-now font-bold text-white custom-text-3xl">We turn your <i className="italic font-playfair  font-normal">marketing into <br />customers,</i> not just clicks</strong>
+                        <h1 ref={headingRef} className="font-family-helvetica-now font-bold text-white custom-text-3xl">We turn your <i className="italic font-playfair  font-normal">marketing into <br />customers,</i> not just clicks</h1>
                         <p ref={textRef} className="!text-white/90 py-4 custom-text-md font-family-helvetica-now max-w-xl">We design and optimize growth systems that drive pipeline, align sales & marketing, and make revenue predictable.</p>
                     </div>
                 </div>

@@ -29,13 +29,13 @@ export default function Banner() {
 
         {/* Content */}
         <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4">
-          <strong className="font-family-helvetica-now font-bold text-white custom-text-3xl animate-fade-up-slower">
+          <h1 className="font-family-helvetica-now font-bold text-white custom-text-3xl animate-fade-up-slower">
             From{" "}
             <i className="italic font-playfair font-normal">
               targeting to conversion <br />
             </i>
             we power your lead engine
-          </strong>
+          </h1>
 
           <p className="text-white py-4 custom-text-md font-family-helvetica-now max-w-md animate-fade-up-slower">
             We help you reach the right audience, optimize conversions,

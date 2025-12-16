@@ -9,7 +9,7 @@ export default function Banner(){
                <div className=" flex flex-col justify-center items-center">
                 <Heading title="Blogs" color="#26DF04"/>
                
-                     <i className="custom-text-3xl py-4 animate-fade-up-slower text-white italic text-center font-playfair">Learn, grow, <strong className="not-italic font-family-helvetica-now">and</strong> level up <br/><strong className="not-italic font-bold">your marketing</strong></i>
+                     <h1><i className="custom-text-3xl py-4 animate-fade-up-slower text-white italic text-center font-playfair">Learn, grow, <strong className="not-italic font-family-helvetica-now">and</strong> level up <br/><strong className="not-italic font-bold">your marketing</strong></i></h1>
                  </div>
              </div>
             </div> 

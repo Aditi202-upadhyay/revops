@@ -28,7 +28,7 @@ export default function Banner() {
 
         <div className="h-full flex flex-col justify-center items-center text-center px-4 z-40">
           <div className=" flex flex-col justify-center items-center">
-            <strong className="font-family-helvetica-now font-bold text-white custom-text-3xl animate-fade-up-slower">
+            <h1 className="font-family-helvetica-now font-bold text-white custom-text-3xl animate-fade-up-slower">
               Proven{" "}
               <i className="italic font-playfair font-normal">
                 Marketing Solutions
@@ -38,7 +38,7 @@ export default function Banner() {
               <i className="italic font-playfair font-normal">
                 Direct Revenue.
               </i>{" "}
-            </strong>
+            </h1>
             <p className="text-white/60 py-4 custom-text-md font-family-helvetica-now max-w-md animate-fade-up-slower">
               We Help D2C Brands: Build and Scale a High-Converting Marketing
               Pipeline.
