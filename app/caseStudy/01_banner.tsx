@@ -3,7 +3,7 @@ import { Heading } from "../component/atom/decorativeHeading";
 export default function Banner(){
     return(
          <section>
-            <div style={{backgroundImage:"url('/assets/blogs/backgroundImage.png')"}} className="relative object-cover bg-no-repeat bg-center w-ful h-[30rem] md:h-[35rem] xl:h-screen">
+            <div style={{backgroundImage:"url('/assets/blogs/backgroundImage.png')"}} className="bg-black relative  h-[30rem] md:h-[34rem] lg:h-[95vh]  lg:rounded-3xl lg:m-4 overflow-hidden">
             <div className="absolute inset-0 buttongradient bg-lightDarkGreen opacity-95"></div>
              <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
                <div className=" flex flex-col justify-center items-center">
