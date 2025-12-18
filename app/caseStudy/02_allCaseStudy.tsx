@@ -110,14 +110,14 @@ const caseStudyDetails: CaseStudyProps[] = [
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
@@ -150,14 +150,14 @@ const caseStudyDetails: CaseStudyProps[] = [
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
@@ -190,14 +190,14 @@ const caseStudyDetails: CaseStudyProps[] = [
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
@@ -230,14 +230,14 @@ const caseStudyDetails: CaseStudyProps[] = [
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
@@ -270,14 +270,14 @@ const caseStudyDetails: CaseStudyProps[] = [
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
           "Why “Vibe Coding” Won’t Cut It: AiSpecify is the Lovable for Enterprise Development",
         link: "/caseStudy/1",
       },
-       {
+      {
         image: "/assets/caseStudy/caseStudy3.png",
         date: "2025",
         heading:
@@ -297,7 +297,7 @@ export default function AllCaseStudy() {
     <section className="blade-top-margin-lg  blade-bottom-margin-lg">
       <div className="w-container-xl">
         <Tabs allTabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12 blade-top-margin-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 md:gap-x-6 gap-y-8 md:gap-y-12 blade-top-margin-sm">
           {activeData?.map((blog, index) => {
             const isFullWidth = (index + 1) % 5 === 0;
             const addMarginTop = (index + 1) % 2 === 0;
@@ -305,7 +305,7 @@ export default function AllCaseStudy() {
             return (
               <div
                 key={index}
-                className={`${isFullWidth ? "col-span-2" : ""}   ${addMarginTop ? "md:mt-12 2xl:mt-10" : ""}`}
+                className={`${isFullWidth ? "md:col-span-2" : ""}   ${addMarginTop ? "md:mt-12 2xl:mt-10" : ""}`}
               >
                 <Card {...blog} />
               </div>
@@ -320,16 +320,16 @@ export default function AllCaseStudy() {
 const Card = ({ image, date, heading, link }: CardProps) => {
   return (
     <div>
-      <div className="relative w-full h-[18rem] md:h-[25rem] xl:h-[35rem]">
+      <div className="relative w-full h-[20rem] md:h-[25rem] xl:h-[35rem]">
         <Image
           src={image}
           alt="Case Study"
           fill
-          className="object-cover rounded-[24px]"
+          className="object-cover rounded-lg md:rounded-[24px]"
         />
       </div>
 
-      <div className="flex  gap-4 mt-4">
+      <div className="flex flex-wrap  gap-2 md:gap-4 mt-4">
         <p className="font-family-helvetica-now text-md text-black">{date}</p>
         <div className="flex gap-2 items-center">
           <div className="w-2 h-2 bg-green"></div>
@@ -337,13 +337,13 @@ const Card = ({ image, date, heading, link }: CardProps) => {
         </div>
       </div>
 
-      <h3 className=" font-family-helvetica-now custom-text-base py-2 font-medium">{heading}</h3>
+      <h3 className=" font-family-helvetica-now text-[15px] sm:text-base md:custom-text-base py-2 font-medium line-clamp-2 md:line-clamp-none">{heading}</h3>
       <a
-        className="font-family-helvetica-now text-darkgreen font-bold custom-text-md flex gap-2 py-4"
+        className="font-family-helvetica-now text-darkgreen font-bold custom-text-md flex gap-2 md:py-4 py-2"
         href={link}
       >
         View full project
-        <Greenbutton color="#fff" style={{background:"linear-gradient(90deg, #2CFE05 -23.73%, #0D5001 186.15%)"}} />
+        <Greenbutton color="#fff" style={{ background: "linear-gradient(90deg, #2CFE05 -23.73%, #0D5001 186.15%)" }} />
       </a>
     </div>
   );
@@ -376,7 +376,7 @@ const Tabs = ({ allTabs, activeTab, onTabChange }: TabProps) => {
             key={index}
             data-tab={tab}
             onClick={() => onTabChange(tab)}
-            className={`transition-all text-xs md:text-lg cursor-pointer px-2 lg:px-6 py-1.5 md:py-3 rounded-full flex items-center gap-1 md:gap-1.5 flex-shrink-0 whitespace-nowrap
+            className={`transition-all text-md md:text-lg cursor-pointer px-2 lg:px-6 py-1.5 md:py-3 rounded-full flex items-center gap-1 md:gap-1.5 flex-shrink-0 whitespace-nowrap
               ${activeTab === tab
                 ? "bg-green text-white"
                 : "text-black  "
